@@ -15,6 +15,6 @@ test:
 lint:
 	npx eslint .
 lint-fix:
-	npx eslint --fix . && prettier --write \"bin/**/*.js\"
+	npx eslint --fix .
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
