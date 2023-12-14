@@ -11,12 +11,7 @@
     "node": ">=21.1.0"
   },
   "scripts": {
-    "test": "npx jest --detectOpenHandles --env-file=.env",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix . && prettier --write \"bin/**/*.js\"",
-    "start": "node --env-file=.env src/index.js",
-    "start:bot": "node --env-file=.env bin/bot.js",
-    "dev": "nodemon --env-file=.env"
+    "test": "npx jest --detectOpenHandles --env-file=.env"
   },
   "repository": {
     "type": "git",
