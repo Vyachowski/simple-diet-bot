@@ -12,9 +12,10 @@
   },
   "scripts": {
     "test": "npx jest --detectOpenHandles --env-file=.env",
-    "lint": "eslint bin",
-    "lint:fix": "eslint --fix bin && prettier --write \"bin/**/*.js\"",
-    "start": "node --env-file=.env bin/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix . && prettier --write \"bin/**/*.js\"",
+    "start": "node --env-file=.env src/index.js",
+    "start:bot": "node --env-file=.env bin/bot.js",
     "dev": "nodemon --env-file=.env"
   },
   "repository": {
@@ -43,9 +44,6 @@
     "prettier": "3.0.3"
   },
   "dependencies": {
-    "axios": "^1.6.2",
-    "grammy": "^1.19.2",
-    "sequelize": "^6.35.1",
-    "sqlite3": "^5.1.6"
+    "grammy": "^1.19.2"
   }
 }
