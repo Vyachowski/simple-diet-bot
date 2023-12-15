@@ -1,4 +1,3 @@
-#!/usr/bin/env node --env-file=.env
 import { Bot } from 'grammy';
 import { getIntroMessage, provideMenuWithGroceryList } from '../src/index.js';
 import { basicCookBook } from '../src/basicCookBook.js';
