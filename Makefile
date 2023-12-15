@@ -3,11 +3,11 @@ install:
 dev:
 	nodemon --env-file=.env src/index.js
 dev-bot:
-	nodemon --env-file=.env bin/bot.js
+	nodemon --no-deprecation --env-file=.env bin/bot.js
 start:
-	node --env-file=.env src/index.js
+	node --no-deprecation src/index.js
 start-bot:
-	node --env-file=.env bin/bot.js
+	node --no-deprecation bin/bot.js
 publish:
 	npm publish --dry-run
 test:

@@ -8,7 +8,7 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=21.1.0"
+    "node": "=21.1.0"
   },
   "scripts": {
     "test": "npx jest --detectOpenHandles --env-file=.env",
