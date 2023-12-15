@@ -1,19 +1,21 @@
+// Basic meal list
+const mealTypes = ['breakfast', 'snack', 'lunch', 'afternoonSnack', 'dinner'];
 // Recipe: Less than 7 ingredients, less than 20 minutes cooking, wide-spread products
 // Breakfasts
 const peanutOvernightOatsBreakfast = {
   name: 'Peanut Butter & Jelly Overnight Oats',
   meal: ['breakfast'],
   ingredients: [
-    ['rolled oats', 50],
-    ['milk', 100],
-    ['greek yogurt', 50],
-    ['cha seeds', 5],
-    ['date syrup', 15],
-    ['vanilla extract', 3], // End of basic ingredients
-    ['strawberry jam', 15],
-    ['creamy peanut butter', 15],
-    ['strawberry', 50],
-    ['peanuts', 40],
+    { name: 'rolled oats', amount: 50, unit: 'g' },
+    { name: 'milk', amount: 100, unit: 'ml' },
+    { name: 'greek yogurt', amount: 50, unit: 'g' },
+    { name: 'cha seeds', amount: 5, unit: 'g' },
+    { name: 'date syrup', amount: 15, unit: 'ml' },
+    { name: 'vanilla extract', amount: 3, unit: 'ml' }, // Base ingredients
+    { name: 'strawberry jam', amount: 15, unit: 'ml' },
+    { name: 'creamy peanut butter', amount: 15, unit: 'g' },
+    { name: 'strawberry', amount: 50, unit: 'g' },
+    { name: 'peanuts', amount: 40, unit: 'g' },
   ],
   recipe: [
     'Combine old fashioned oats, seeds, yoghurt and vanilla extract, sweetener and milk (it is convenient to make it in a glass) with all basic ingredients',
@@ -35,16 +37,16 @@ const appleOvernightOatsBreakfast = {
   name: 'Apple pie Overnight Oats',
   meal: ['breakfast'],
   ingredients: [
-    ['rolled oats', 50],
-    ['milk', 100],
-    ['greek yogurt', 50],
-    ['cha seeds', 5],
-    ['date syrup', 15],
-    ['vanilla extract', 3], // End of basic ingredients
-    ['apple', 100],
-    ['pecan', 20],
-    ['maple syrup', 40],
-    ['cinnamon', 5],
+    { name: 'rolled oats', amount: 50, unit: 'g' },
+    { name: 'milk', amount: 100, unit: 'ml' },
+    { name: 'greek yogurt', amount: 50, unit: 'g' },
+    { name: 'cha seeds', amount: 5, unit: 'g' },
+    { name: 'date syrup', amount: 15, unit: 'ml' },
+    { name: 'vanilla extract', amount: 3, unit: 'ml' },
+    { name: 'apple', amount: 100, unit: 'g' },
+    { name: 'pecan', amount: 20, unit: 'g' },
+    { name: 'maple syrup', amount: 40, unit: 'ml' },
+    { name: 'cinnamon', amount: 5, unit: 'g' },
   ],
   recipe: [
     'Combine old fashioned oats, seeds, yoghurt and vanilla extract, sweetener and milk (it is convenient to make it in a glass) with all basic ingredients',
@@ -66,16 +68,16 @@ const bananaOvernightOatsBreakfast = {
   name: 'Banana & Nutella Overnight Oats',
   meal: ['breakfast'],
   ingredients: [
-    ['rolled oats', 50],
-    ['milk', 100],
-    ['greek yogurt', 50],
-    ['cha seeds', 5],
-    ['date syrup', 15],
-    ['vanilla extract', 3], // End of basic ingredients
-    ['banana', 60],
-    ['nutella', 20],
-    ['hazelnuts', 20],
-    ['chocolate', 20],
+    { name: 'rolled oats', amount: 50, unit: 'g' },
+    { name: 'milk', amount: 100, unit: 'ml' },
+    { name: 'greek yogurt', amount: 50, unit: 'g' },
+    { name: 'cha seeds', amount: 5, unit: 'g' },
+    { name: 'date syrup', amount: 15, unit: 'ml' },
+    { name: 'vanilla extract', amount: 3, unit: 'ml' },
+    { name: 'banana', amount: 60, unit: 'g' },
+    { name: 'nutella', amount: 20, unit: 'g' },
+    { name: 'hazelnuts', amount: 20, unit: 'g' },
+    { name: 'chocolate', amount: 20, unit: 'g' },
   ],
   cookingTimeInMinutes: 10,
   nutrients: {
@@ -97,7 +99,9 @@ const bananaOvernightOatsBreakfast = {
 const bambaSnack = {
   name: 'Bamba',
   meal: ['snack'],
-  ingredients: [['bamba', 80]],
+  ingredients: [
+    { name: 'bamba', amount: 80, unit: 'g' },
+  ],
   nutrients: {
     calories: 427,
     carbohydrates: 39.2,
@@ -113,7 +117,9 @@ const bambaSnack = {
 const peanutsSnack = {
   name: 'Fried Peanuts',
   meal: ['snack'],
-  ingredients: [['peanuts', 44]],
+  ingredients: [
+    { name: 'peanuts', amount: 44, unit: 'g' },
+  ],
   nutrients: {
     calories: 237,
     carbohydrates: 7.1,
@@ -131,14 +137,14 @@ const chickenSaladLunch = {
   name: 'Light Chicken Salad',
   meal: ['lunch'],
   ingredients: [
-    ['cooked chicken breast', 200],
-    ['mixed greens (spinach, lettuce, arugula)', 150],
-    ['cherry tomatoes, halved', 100],
-    ['cucumber, sliced', 80],
-    ['red onion, thinly sliced', 50],
-    ['olive oil', 15],
-    ['lemon juice', 10],
-    ['salt and pepper, to taste'],
+    { name: 'cooked chicken breast', amount: 200, unit: 'g' },
+    { name: 'mixed greens (spinach, lettuce, arugula)', amount: 150, unit: 'g' },
+    { name: 'cherry tomatoes, halved', amount: 100, unit: 'g' },
+    { name: 'cucumber, sliced', amount: 80, unit: 'g' },
+    { name: 'red onion, thinly sliced', amount: 50, unit: 'g' },
+    { name: 'olive oil', amount: 15, unit: 'ml' },
+    { name: 'lemon juice', amount: 10, unit: 'ml' },
+    { name: 'salt and pepper, to taste', amount: undefined }, // Поскольку не указано количество, оно будет undefined
   ],
   cookingTimeInMinutes: 15,
   nutrients: {
@@ -160,13 +166,13 @@ const chickenAvocadoToastLunch = {
   name: 'Chicken Avocado Toast',
   meal: ['lunch'],
   ingredients: [
-    ['cooked chicken breast, shredded', 150],
-    ['avocado, mashed', 1],
-    ['whole grain bread slices', 2],
-    ['cherry tomatoes, sliced', 50],
-    ['fresh basil leaves', 10],
-    ['olive oil', 10],
-    ['salt and pepper, to taste'],
+    { name: 'cooked chicken breast, shredded', amount: 150, unit: 'g' },
+    { name: 'avocado, mashed', amount: 1, unit: 'unit' },
+    { name: 'whole grain bread slices', amount: 2, unit: 'unit' },
+    { name: 'cherry tomatoes, sliced', amount: 50, unit: 'g' },
+    { name: 'fresh basil leaves', amount: 10, unit: 'g' },
+    { name: 'olive oil', amount: 10, unit: 'ml' },
+    { name: 'salt and pepper, to taste', amount: undefined }, // Поскольку не указано количество, оно будет undefined
   ],
   cookingTimeInMinutes: 15,
   nutrients: {
@@ -191,9 +197,9 @@ const lemonPossetAfternoonSnack = {
   name: 'Lemon Posset',
   meal: ['afternoonSnack'],
   ingredients: [
-    ['lemon', 1],
-    ['sugar', 50],
-    ['heavy cream (33%)', 200],
+    { name: 'lemon', amount: 1, unit: 'unit' },
+    { name: 'sugar', amount: 50, unit: 'g' },
+    { name: 'heavy cream (33%)', amount: 200, unit: 'ml' },
   ],
   nutrients: {
     calories: 215.8,
@@ -217,15 +223,15 @@ const grilledSalmonDinner = {
   name: 'Grilled Salmon with Vegetables',
   meal: ['dinner'],
   ingredients: [
-    ['salmon fillet', 150],
-    ['asparagus spears', 100],
-    ['bell peppers (assorted colors), sliced', 150],
-    ['zucchini, sliced', 100],
-    ['olive oil', 15],
-    ['garlic powder', 5],
-    ['lemon zest', 5],
-    ['salt', 2],
-    ['pepper', 2],
+    { name: 'salmon fillet', amount: 150, unit: 'g' },
+    { name: 'asparagus spears', amount: 100, unit: 'g' },
+    { name: 'bell peppers (assorted colors), sliced', amount: 150, unit: 'g' },
+    { name: 'zucchini, sliced', amount: 100, unit: 'g' },
+    { name: 'olive oil', amount: 15, unit: 'ml' },
+    { name: 'garlic powder', amount: 5, unit: 'g' },
+    { name: 'lemon zest', amount: 5, unit: 'g' },
+    { name: 'salt', amount: 2, unit: 'g' },
+    { name: 'pepper', amount: 2, unit: 'g' },
   ],
   cookingTimeInMinutes: 20,
   nutrients: {
@@ -244,52 +250,74 @@ const grilledSalmonDinner = {
   storageTimeInHours: 48,
 };
 
-const panFriedCodDinner = {
-  name: 'Pan-Fried Cod with Lemon Sauce',
+const onePotChickenAndRice = {
+  name: 'One Pot Chicken and Rice',
   meal: ['dinner'],
   ingredients: [
-    ['cod fillet', 200],
-    ['all-purpose flour', 50],
-    ['olive oil', 15],
-    ['garlic cloves, minced', 2],
-    ['chicken or vegetable broth', 150],
-    ['lemon juice', 30],
-    ['fresh parsley, chopped', 10],
-    ['salt and pepper, to taste'],
+    { name: 'paprika', amount: 0.5, unit: 'tsp' },
+    { name: 'dried oregano', amount: 0.25, unit: 'tsp' },
+    { name: 'dried thyme', amount: 0.25, unit: 'tsp' },
+    { name: 'garlic powder', amount: 0.13, unit: 'tsp' },
+    { name: 'onion powder', amount: 0.13, unit: 'tsp' },
+    { name: 'salt', amount: 0.06, unit: 'tsp' },
+    { name: 'pepper', amount: 0.06, unit: 'tsp' },
+    { name: 'boneless, skinless chicken thighs', amount: 0.31, unit: 'lbs' },
+    {
+      name: 'cooking oil', amount: 0.5, unit: 'Tbsp', divided: true,
+    },
+    {
+      name: 'yellow onion', amount: 0.25, unit: 'unit', diced: true,
+    },
+    {
+      name: 'long-grain white rice', amount: 0.25, unit: 'cup', uncooked: true,
+    },
+    { name: 'vegetable broth', amount: 0.44, unit: 'cups' },
+    {
+      name: 'chopped parsley', amount: 0.25, unit: 'Tbsp', optional: true, garnish: true,
+    },
   ],
-  cookingTimeInMinutes: 20,
+  instructions: [
+    'Combine the paprika, oregano, thyme, garlic powder, onion powder, salt, and pepper in a small bowl.',
+    'Coat both sides of the chicken thighs in the seasoning mix.',
+    'Add 0.5 Tbsp cooking oil to a deep skillet and heat over medium. Once hot, swirl to coat the surface of the skillet, then add the chicken thighs.',
+    'Cook the thighs for a few minutes on each side, or until well browned. The chicken does not need to be cooked through at this point.',
+    'Remove the browned chicken to a clean plate.',
+    'Reduce the heat to medium-low, add an additional 0.5 Tbsp cooking oil to the skillet, then add the diced onion. Sauté the onion for about 5 minutes, or until softened. Allow the moisture from the onion to dissolve the browned bits from the skillet as you stir.',
+    'Add the uncooked rice to the skillet and continue to sauté for 1-2 minutes more to toast the rice.',
+    'Add the vegetable broth to the skillet and briefly stir to dissolve any remaining brown bits from the bottom of the skillet.',
+    'Return the chicken to the skillet, setting it on top of the rice. Place a lid on the skillet, turn the heat up to medium-high, and allow the broth to come up to a full boil.',
+    'Once boiling, turn the heat down to low and let the chicken and rice continue to simmer over low, without lifting the lid or stirring, for 20 minutes.',
+    'After 20 minutes, turn off the heat and let it rest, without lifting the lid, for an additional 5 minutes.',
+    'Finally, remove the lid and fluff the rice around the chicken. Garnish with chopped parsley, if desired, then serve and enjoy!',
+  ],
+  cookingTimeInMinutes: 40,
   nutrients: {
-    calories: 320,
-    carbohydrates: 10,
-    protein: 35,
-    fat: 15,
-    sodium: 0.5,
+    servingSize: '1 serving',
+    calories: 421,
+    carbohydrates: 42,
+    protein: 31,
+    fat: 13,
+    sodium: 688,
+    fiber: 2,
   },
-  recipe: [
-    'Season the cod fillet with salt and pepper. Dredge it in flour, shaking off excess.',
-    'Heat olive oil in a skillet over medium-high heat. Add the cod fillet and cook for 3-4 minutes per side, or until golden brown and cooked through. Remove from the skillet and set aside.',
-    'In the same skillet, add minced garlic and cook until fragrant. Pour in the broth and lemon juice. Bring to a simmer and let it cook for 2-3 minutes, until the sauce thickens slightly.',
-    'Return the cod fillet to the skillet. Spoon the lemon sauce over the fish. Garnish with chopped parsley.',
-    'Serve hot with your favorite side dishes, or refrigerate for later consumption.',
-  ],
-  storageTimeInHours: 48,
+  storageTimeInHours: 72,
 };
 
 const tunaPastaDinner = {
   name: 'Tuna Pasta with Tomato Sauce',
   meal: ['dinner'],
   ingredients: [
-    ['canned tuna in water, drained', 200],
-    ['spaghetti or your favorite pasta', 150],
-    ['olive oil', 15],
-    ['garlic clove, minced', 1],
-    ['canned crushed tomatoes', 200],
-    ['dried basil', 3],
-    ['dried oregano', 3],
-    ['red pepper flakes, optional', 2],
-    ['salt and black pepper', 2],
-    ['fresh parsley, chopped (for garnish)', 30],
-    ['grated Parmesan cheese (optional, for serving)', 30],
+    { name: 'canned tuna in water, drained', amount: 200, unit: 'g' },
+    { name: 'spaghetti or your favorite pasta', amount: 150, unit: 'g' },
+    { name: 'olive oil', amount: 15, unit: 'ml' },
+    { name: 'garlic clove, minced', amount: 1, unit: 'unit' },
+    { name: 'canned crushed tomatoes', amount: 200, unit: 'g' },
+    { name: 'dried basil', amount: 3, unit: 'g' },
+    { name: 'dried oregano', amount: 3, unit: 'g' },
+    { name: 'red pepper flakes, optional', amount: 2, unit: 'g' },
+    { name: 'salt and black pepper', amount: 2, unit: 'g' },
+    { name: 'fresh parsley, chopped (for garnish)', amount: 30, unit: 'g' },
+    { name: 'grated Parmesan cheese (optional, for serving)', amount: 30, unit: 'g' },
   ],
   cookingTimeInMinutes: 20,
   nutrients: {
@@ -320,9 +348,12 @@ const basicCookBook = [
   lemonPossetAfternoonSnack,
   chickenSaladLunch,
   grilledSalmonDinner,
+  onePotChickenAndRice,
   chickenAvocadoToastLunch,
-  panFriedCodDinner,
   tunaPastaDinner,
 ];
 
-export default basicCookBook;
+export {
+  mealTypes,
+  basicCookBook,
+};
