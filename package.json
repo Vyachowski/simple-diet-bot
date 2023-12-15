@@ -1,6 +1,6 @@
 {
   "name": "bity-smarty",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Bity Smarty – a small bot for providing a week diet and grocery list",
   "main": "src/index.js",
   "bin": {

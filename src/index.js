@@ -1,5 +1,9 @@
-import { mealTypes } from './basicCookBook.js';
+import * as fs from 'fs';
 import capitalize from './utils.js';
+//
+const { mealTypes } = JSON
+  .parse(fs.readFileSync('./src/basicCookbook.json', 'utf-8'));
+
 // Get welcome messages
 const getIntroMessage = (type) => {
   const welcomeMessage = "Hi! Let me introduce you 'Bity Smarty' – a special bot that can provide a healthy diet and a grocery list for your next shopping.\n\n";

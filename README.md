@@ -28,7 +28,7 @@ Some restrictions for this project:
 
 ## Getting Started
 
-Now only available from a Node.js...
+Bot is available in telegram: [Bity Smarty Bot](https://t.me/bity_smarty_bot)
 
 ### Key dependencies
 
@@ -63,10 +63,6 @@ Now only available from a Node.js...
 #### Programming tasks:
 * Create a database with different recipes: **JsonDB**
 * Update telegram bot with ability to pin messages
-
-### Executing program
-
-Telegram bot will be available soon...
 
 ## Authors
 
