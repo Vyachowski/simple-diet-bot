@@ -1,29 +1,20 @@
 #!/usr/bin/env node --env-file=.env
-import { Bot } from "grammy";
+import { Bot } from 'grammy';
+import { getIntroMessage, provideMenuWithGroceryList } from '../src/index.js';
+import { basicCookBook } from '../src/basicCookBook.js';
 
 const bot = new Bot(process.env.BOT_TOKEN);
 
-
-bot.onText(/\/start/, (msg) => {
-  const chatId = msg.chat.id;
-  const userId = msg.from.id;
-
-  bot.sendMessage(chatId, `ID: ${userId}. Chat ID: ${chatId}\n\n${welcomeMessage}`) .then(() => true);
+bot.command('start', async (ctx) => {
+  await ctx.reply(getIntroMessage('welcome'));
+  await ctx.reply(getIntroMessage('features'));
 });
 
-bot.onText(/\/menu/, async (msg) => {
-  const currentMenu = await diet.getMenu();
-  const currentMenuText = JSON.stringify(currentMenu.breakfast);
+bot.command('menu', async (ctx) => {
+  const menuWithGroceryList = provideMenuWithGroceryList(basicCookBook);
 
-  bot.sendMessage(msg.chat.id, `${currentMenuText}`).then(() => true);
+  await ctx.reply(menuWithGroceryList.menuText);
+  await ctx.reply(menuWithGroceryList.groceryListText);
 });
 
-bot.onText(/\/grocery/, async (msg) => {
-
-  bot.sendMessage(msg.chat.id, `${'text'}`).then(() => true);
-});
-
-bot.onText(/\/dishes/, async (msg) => {
-
-  bot.sendMessage(msg.chat.id, `${'text'}`).then(() => true);
-});
+bot.start().then((r) => r).catch((e) => e);

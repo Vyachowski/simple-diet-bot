@@ -4,6 +4,5 @@
     "src/",
     ".env"
   ],
-  "ext": ".js",
-  "exec": "node --env-file=.env bin/index.js"
+  "ext": ".js"
 }
