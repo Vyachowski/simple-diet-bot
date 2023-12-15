@@ -1,5 +1,5 @@
 import capitalize from '../src/utils.js';
-import {getIntroMessage} from "../src/index.js";
+import { getIntroMessage } from '../src/index.js';
 
 // Utilities tests
 test('Capitalize: Functioning, Wrong data type, starts with a number', () => {
