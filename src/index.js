@@ -1,23 +1,13 @@
-import * as fs from 'fs';
 import capitalize from './utils.js';
-//
-const { mealTypes } = JSON
-  .parse(fs.readFileSync('./src/basicCookbook.json', 'utf-8'));
+import { getData } from './data/data.js';
 
-// Get welcome messages
-const getIntroMessage = (type) => {
-  const welcomeMessage = "Hi! Let me introduce you 'Bity Smarty' – a special bot that can provide a healthy diet and a grocery list for your next shopping.\n\n";
-  const featureMessage = 'Here is 5 main features of this bot:\n'
-    + '1. Save your time: Only 1 hour for cooking per 3 day!\n'
-    + '2. No complex equipment. Just a multi cooker to start!\n'
-    + '3. Healthy diet with fancy recipes that looks great\n'
-    + '4. Most recipes can be easily stored in the fridge or in the freezer\n'
-    + '5. And to make it even tastier – It is completely free :)';
-  return (type === 'welcome' ? welcomeMessage : featureMessage);
-};
+// Welcome message
+const getIntroMessages = () => getData('introMessages');
 
 // Menu
-const generateMenu = (recipesList) => {
+const generateMenu = () => {
+  const mealTypes = getData('mealTypes');
+  const recipesList = getData('recipes');
   const getRecipesByMealType = (recipes, mealType) => recipes
     .filter((recipe) => recipe.meal.includes(mealType));
   const getRandomArrayIndex = (array) => Math.floor(Math.random() * array.length);
@@ -34,6 +24,7 @@ const generateMenu = (recipesList) => {
 };
 
 const formatMenu = (menu) => {
+  const mealTypes = getData('mealTypes');
   const getMenuLine = (meal, menuVariant) => `${capitalize(meal)}: ${menuVariant[meal].name}`;
   const menuHeader = 'Menu\n\n';
   const menuText = mealTypes
@@ -69,8 +60,8 @@ const formatGroceryList = (currentGroceryList) => {
 };
 
 // Result
-const provideMenuWithGroceryList = (recipesList) => {
-  const newMenu = generateMenu(recipesList);
+const provideMenuWithGroceryList = () => {
+  const newMenu = generateMenu();
   const groceryList = generateGroceryList(newMenu);
   return {
     menuText: formatMenu(newMenu),
@@ -79,6 +70,6 @@ const provideMenuWithGroceryList = (recipesList) => {
 };
 
 export {
-  getIntroMessage,
+  getIntroMessages,
   provideMenuWithGroceryList,
 };

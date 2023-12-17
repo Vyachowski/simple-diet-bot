@@ -40,6 +40,7 @@
     "prettier": "3.0.3"
   },
   "dependencies": {
-    "grammy": "^1.19.2"
+    "grammy": "^1.19.2",
+    "lowdb": "^6.1.1"
   }
 }

@@ -20,4 +20,5 @@ rules:
     - error
     - ignorePackages
     - js: always
+  import/no-unresolved: [0, { "caseSensitive": false }]
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
