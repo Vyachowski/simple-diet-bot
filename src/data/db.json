@@ -29,7 +29,7 @@
           "unit": "g"
         },
         {
-          "name": "cha seeds",
+          "name": "chia seeds",
           "amount": 5,
           "unit": "g"
         },
@@ -101,7 +101,7 @@
           "unit": "g"
         },
         {
-          "name": "cha seeds",
+          "name": "chia seeds",
           "amount": 5,
           "unit": "g"
         },
@@ -173,7 +173,7 @@
           "unit": "g"
         },
         {
-          "name": "cha seeds",
+          "name": "chia seeds",
           "amount": 5,
           "unit": "g"
         },
@@ -247,9 +247,54 @@
       "storageTimeInHours": 1200
     },
     {
+      "name": "Lebanese carrot sticks",
+      "meal": [
+        "snack", "afternoonSnack"
+      ],
+      "ingredients": [
+        {
+          "name": "carrot",
+          "amount": 80,
+          "unit": "g"
+        },
+        {
+          "name": "cumin",
+          "amount": 10,
+          "unit": "g"
+        },
+        {
+          "name": "lemon",
+          "amount": 40,
+          "unit": "g"
+        },
+        {
+          "name": "salt",
+          "amount": 3,
+          "unit": "g"
+        }
+      ],
+      "nutrients": {
+        "calories": 63,
+        "carbohydrates": 11,
+        "protein": 0.6,
+        "fibre": 5.2,
+        "fat": 0.5,
+        "sodium": 0.5
+      },
+      "cookingTimeInMinutes": 10,
+      "recipe": [
+        "Wash the carrots well and peel the outer layer",
+        "Cut off both ends of each carrot and discard",
+        "Cut the carrots into half and then slice the halves into thin sticks lengthwise (approximately 6 – 8 cm long)",
+        "Place the carrot sticks in a container and add the juice of half a lemon",
+        "Add the cumin. Mix the carrots with the seasoning and serve"
+      ],
+      "storageTimeInHours": 1200
+    },
+    {
       "name": "Fried Peanuts",
       "meal": [
-        "snack"
+        "snack", "afternoonSnack"
       ],
       "ingredients": [
         {
