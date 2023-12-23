@@ -1,4 +1,8 @@
 {
+  "introMessages": {
+    "welcome": "Hi! Let me introduce you 'Bity Smarty' – a special bot that can provide a healthy diet and a grocery list for your next shopping.\n\n",
+    "features": "Here is 5 main features of this bot:\n1. Save your time: Only 1 hour for cooking per 3 day!\n2. No complex equipment. Just a multi cooker to start!\n3. Healthy diet with fancy recipes that looks great\n4. Most recipes can be easily stored in the fridge or in the freezer\n5. And to make it even tastier – It is completely free :)"
+  },
   "mealTypes": [
     "breakfast",
     "snack",
@@ -723,8 +727,186 @@
       "storageTimeInHours": 48
     }
   ],
-  "introMessages": {
-    "welcome": "Hi! Let me introduce you 'Bity Smarty' – a special bot that can provide a healthy diet and a grocery list for your next shopping.\n\n",
-    "features": "Here is 5 main features of this bot:\n1. Save your time: Only 1 hour for cooking per 3 day!\n2. No complex equipment. Just a multi cooker to start!\n3. Healthy diet with fancy recipes that looks great\n4. Most recipes can be easily stored in the fridge or in the freezer\n5. And to make it even tastier – It is completely free :)"
+  "ingredients": {
+    "rolled oats": {
+      "unit": "g"
+    },
+    "milk": {
+      "unit": "ml"
+    },
+    "greek yogurt": {
+      "unit": "g"
+    },
+    "chia seeds": {
+      "unit": "g"
+    },
+    "date syrup": {
+      "unit": "ml"
+    },
+    "vanilla extract": {
+      "unit": "ml"
+    },
+    "strawberry jam": {
+      "unit": "ml"
+    },
+    "creamy peanut butter": {
+      "unit": "g"
+    },
+    "strawberry": {
+      "unit": "g"
+    },
+    "peanuts": {
+      "unit": "g"
+    },
+    "apple": {
+      "unit": "g"
+    },
+    "pecan": {
+      "unit": "g"
+    },
+    "maple syrup": {
+      "unit": "ml"
+    },
+    "cinnamon": {
+      "unit": "g"
+    },
+    "banana": {
+      "unit": "g"
+    },
+    "nutella": {
+      "unit": "g"
+    },
+    "hazelnuts": {
+      "unit": "g"
+    },
+    "chocolate": {
+      "unit": "g"
+    },
+    "bamba": {
+      "unit": "g"
+    },
+    "carrot": {
+      "unit": "g"
+    },
+    "cumin": {
+      "unit": "g"
+    },
+    "lemon": {
+      "unit": "g"
+    },
+    "salt": {
+      "unit": "g"
+    },
+    "peanut": {
+      "unit": "g"
+    },
+    "sugar": {
+      "unit": "g"
+    },
+    "heavy cream (33%)": {
+      "unit": "ml"
+    },
+    "chicken breast": {
+      "unit": "g"
+    },
+    "mixed greens (spinach, lettuce, arugula)": {
+      "unit": "g"
+    },
+    "cherry tomatoes, halved": {
+      "unit": "g"
+    },
+    "cucumber, sliced": {
+      "unit": "g"
+    },
+    "red onion": {
+      "unit": "g"
+    },
+    "lemon juice": {
+      "unit": "ml"
+    },
+    "avocado": {
+      "unit": "g"
+    },
+    "whole grain bread slices": {
+      "unit": "g"
+    },
+    "cherry": {
+      "unit": "g"
+    },
+    "fresh basil leaves": {
+      "unit": "g"
+    },
+    "asparagus spears": {
+      "unit": "g"
+    },
+    "bell peppers": {
+      "unit": "g"
+    },
+    "zucchini, sliced": {
+      "unit": "g"
+    },
+    "garlic powder": {
+      "unit": "g"
+    },
+    "lemon zest": {
+      "unit": "g"
+    },
+    "pepper": {
+      "unit": "g"
+    },
+    "paprika": {
+      "unit": "g"
+    },
+    "dried thyme": {
+      "unit": "g"
+    },
+    "onion powder": {
+      "unit": "g"
+    },
+    "chicken thighs": {
+      "unit": "g"
+    },
+    "yellow onion": {
+      "unit": "g"
+    },
+    "long-grain white rice": {
+      "unit": "g"
+    },
+    "vegetable broth": {
+      "unit": "ml"
+    },
+    "parsley": {
+      "unit": "g"
+    },
+    "canned tuna in water (drained)": {
+      "unit": "g"
+    },
+    "spaghetti": {
+      "unit": "g"
+    },
+    "olive oil": {
+      "unit": "ml"
+    },
+    "garlic clove": {
+      "unit": "g"
+    },
+    "canned crushed tomatoes": {
+      "unit": "g"
+    },
+    "dried basil": {
+      "unit": "g"
+    },
+    "dried oregano": {
+      "unit": "g"
+    },
+    "red pepper flakes": {
+      "unit": "g"
+    },
+    "fresh parsley": {
+      "unit": "g"
+    },
+    "parmesan cheese": {
+      "unit": "g"
+    }
   }
 }
