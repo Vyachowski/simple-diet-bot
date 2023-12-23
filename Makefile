@@ -8,8 +8,6 @@ start:
 	node --no-deprecation src/index.js
 start-bot:
 	node --no-deprecation bin/bot.js
-publish:
-	npm publish --dry-run
 test:
 	npm run test
 lint:
