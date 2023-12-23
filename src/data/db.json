@@ -728,170 +728,65 @@
     }
   ],
   "ingredients": {
-    "rolled oats": {
-      "unit": "g"
-    },
-    "milk": {
-      "unit": "ml"
-    },
-    "greek yogurt": {
-      "unit": "g"
-    },
-    "chia seeds": {
-      "unit": "g"
-    },
-    "date syrup": {
-      "unit": "ml"
-    },
-    "vanilla extract": {
-      "unit": "ml"
-    },
-    "strawberry jam": {
-      "unit": "ml"
-    },
-    "creamy peanut butter": {
-      "unit": "g"
-    },
-    "strawberry": {
-      "unit": "g"
-    },
-    "peanuts": {
-      "unit": "g"
-    },
     "apple": {
-      "unit": "g"
-    },
-    "pecan": {
-      "unit": "g"
-    },
-    "maple syrup": {
-      "unit": "ml"
-    },
-    "cinnamon": {
-      "unit": "g"
-    },
-    "banana": {
-      "unit": "g"
-    },
-    "nutella": {
-      "unit": "g"
-    },
-    "hazelnuts": {
-      "unit": "g"
-    },
-    "chocolate": {
-      "unit": "g"
-    },
-    "bamba": {
-      "unit": "g"
-    },
-    "carrot": {
-      "unit": "g"
-    },
-    "cumin": {
-      "unit": "g"
-    },
-    "lemon": {
-      "unit": "g"
-    },
-    "salt": {
-      "unit": "g"
-    },
-    "peanut": {
-      "unit": "g"
-    },
-    "sugar": {
-      "unit": "g"
-    },
-    "heavy cream (33%)": {
-      "unit": "ml"
-    },
-    "chicken breast": {
-      "unit": "g"
-    },
-    "mixed greens (spinach, lettuce, arugula)": {
-      "unit": "g"
-    },
-    "cherry tomatoes, halved": {
-      "unit": "g"
-    },
-    "cucumber, sliced": {
-      "unit": "g"
-    },
-    "red onion": {
-      "unit": "g"
-    },
-    "lemon juice": {
-      "unit": "ml"
-    },
-    "avocado": {
-      "unit": "g"
-    },
-    "whole grain bread slices": {
-      "unit": "g"
-    },
-    "cherry": {
-      "unit": "g"
-    },
-    "fresh basil leaves": {
       "unit": "g"
     },
     "asparagus spears": {
       "unit": "g"
     },
+    "avocado": {
+      "unit": "g"
+    },
+    "bamba": {
+      "unit": "g"
+    },
+    "banana": {
+      "unit": "g"
+    },
     "bell peppers": {
       "unit": "g"
     },
-    "zucchini, sliced": {
-      "unit": "g"
-    },
-    "garlic powder": {
-      "unit": "g"
-    },
-    "lemon zest": {
-      "unit": "g"
-    },
-    "pepper": {
-      "unit": "g"
-    },
-    "paprika": {
-      "unit": "g"
-    },
-    "dried thyme": {
-      "unit": "g"
-    },
-    "onion powder": {
-      "unit": "g"
-    },
-    "chicken thighs": {
-      "unit": "g"
-    },
-    "yellow onion": {
-      "unit": "g"
-    },
-    "long-grain white rice": {
-      "unit": "g"
-    },
-    "vegetable broth": {
-      "unit": "ml"
-    },
-    "parsley": {
+    "canned crushed tomatoes": {
       "unit": "g"
     },
     "canned tuna in water (drained)": {
       "unit": "g"
     },
-    "spaghetti": {
+    "carrot": {
       "unit": "g"
     },
-    "olive oil": {
+    "celery": {
+      "unit": "g"
+    },
+    "cheddar cheese": {
+      "unit": "g"
+    },
+    "cherry tomatoes": {
+      "unit": "g"
+    },
+    "chia seeds": {
+      "unit": "g"
+    },
+    "chicken breast": {
+      "unit": "g"
+    },
+    "chicken thighs": {
+      "unit": "g"
+    },
+    "chocolate": {
+      "unit": "g"
+    },
+    "cinnamon": {
+      "unit": "g"
+    },
+    "creamy peanut butter": {
+      "unit": "g"
+    },
+    "cucumber": {
+      "unit": "g"
+    },
+    "date syrup": {
       "unit": "ml"
-    },
-    "garlic clove": {
-      "unit": "g"
-    },
-    "canned crushed tomatoes": {
-      "unit": "g"
     },
     "dried basil": {
       "unit": "g"
@@ -899,13 +794,121 @@
     "dried oregano": {
       "unit": "g"
     },
-    "red pepper flakes": {
+    "dried thyme": {
+      "unit": "g"
+    },
+    "fresh basil leaves": {
       "unit": "g"
     },
     "fresh parsley": {
       "unit": "g"
     },
+    "garlic clove": {
+      "unit": "g"
+    },
+    "garlic powder": {
+      "unit": "g"
+    },
+    "greek yogurt": {
+      "unit": "g"
+    },
+    "hazelnuts": {
+      "unit": "g"
+    },
+    "heavy cream (33%)": {
+      "unit": "ml"
+    },
+    "lemon": {
+      "unit": "g"
+    },
+    "lemon juice": {
+      "unit": "ml"
+    },
+    "lemon zest": {
+      "unit": "g"
+    },
+    "long-grain white rice": {
+      "unit": "g"
+    },
+    "maple syrup": {
+      "unit": "ml"
+    },
+    "milk": {
+      "unit": "ml"
+    },
+    "mixed greens (spinach, lettuce, arugula)": {
+      "unit": "g"
+    },
+    "nutella": {
+      "unit": "g"
+    },
+    "olive oil": {
+      "unit": "ml"
+    },
+    "onion powder": {
+      "unit": "g"
+    },
     "parmesan cheese": {
+      "unit": "g"
+    },
+    "pecan": {
+      "unit": "g"
+    },
+    "peanut": {
+      "unit": "g"
+    },
+    "paprika": {
+      "unit": "g"
+    },
+    "pepper": {
+      "unit": "g"
+    },
+    "pistachios": {
+      "unit": "g"
+    },
+    "pumpkin seeds": {
+      "unit": "g"
+    },
+    "red onion": {
+      "unit": "g"
+    },
+    "red pepper flakes": {
+      "unit": "g"
+    },
+    "rolled oats": {
+      "unit": "g"
+    },
+    "salt": {
+      "unit": "g"
+    },
+    "sesame seeds": {
+      "unit": "g"
+    },
+    "sugar": {
+      "unit": "g"
+    },
+    "strawberry": {
+      "unit": "g"
+    },
+    "strawberry jam": {
+      "unit": "ml"
+    },
+    "tofu": {
+      "unit": "g"
+    },
+    "tuna in olive oil, drained": {
+      "unit": "g"
+    },
+    "walnuts": {
+      "unit": "g"
+    },
+    "whole grain bread slices": {
+      "unit": "g"
+    },
+    "yellow onion": {
+      "unit": "g"
+    },
+    "zucchini": {
       "unit": "g"
     }
   }
