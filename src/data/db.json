@@ -17,56 +17,16 @@
         "breakfast"
       ],
       "ingredients": [
-        {
-          "name": "rolled oats",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "milk",
-          "amount": 100,
-          "unit": "ml"
-        },
-        {
-          "name": "greek yogurt",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "chia seeds",
-          "amount": 5,
-          "unit": "g"
-        },
-        {
-          "name": "date syrup",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "vanilla extract",
-          "amount": 3,
-          "unit": "ml"
-        },
-        {
-          "name": "strawberry jam",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "creamy peanut butter",
-          "amount": 15,
-          "unit": "g"
-        },
-        {
-          "name": "strawberry",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "peanuts",
-          "amount": 40,
-          "unit": "g"
-        }
+        ["rolled oats", 50],
+        ["milk", 100],
+        ["greek yogurt", 50],
+        ["chia seeds", 5],
+        ["date syrup", 15],
+        ["vanilla extract", 3],
+        ["strawberry jam", 15],
+        ["creamy peanut butter", 15],
+        ["strawberry", 50],
+        ["peanuts", 40]
       ],
       "recipe": [
         "Combine old fashioned oats, seeds, yoghurt and vanilla extract, sweetener and milk (it is convenient to make it in a glass) with all basic ingredients",
@@ -89,56 +49,16 @@
         "breakfast"
       ],
       "ingredients": [
-        {
-          "name": "rolled oats",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "milk",
-          "amount": 100,
-          "unit": "ml"
-        },
-        {
-          "name": "greek yogurt",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "chia seeds",
-          "amount": 5,
-          "unit": "g"
-        },
-        {
-          "name": "date syrup",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "vanilla extract",
-          "amount": 3,
-          "unit": "ml"
-        },
-        {
-          "name": "apple",
-          "amount": 100,
-          "unit": "g"
-        },
-        {
-          "name": "pecan",
-          "amount": 20,
-          "unit": "g"
-        },
-        {
-          "name": "maple syrup",
-          "amount": 40,
-          "unit": "ml"
-        },
-        {
-          "name": "cinnamon",
-          "amount": 5,
-          "unit": "g"
-        }
+        ["rolled oats", 50],
+        ["milk", 100],
+        ["greek yogurt", 50],
+        ["chia seeds", 5],
+        ["date syrup", 15],
+        ["vanilla extract", 3],
+        ["apple", 100],
+        ["pecan", 20],
+        ["maple syrup", 40],
+        ["cinnamon", 5]
       ],
       "recipe": [
         "Combine old fashioned oats, seeds, yoghurt and vanilla extract, sweetener and milk (it is convenient to make it in a glass) with all basic ingredients",
@@ -161,56 +81,16 @@
         "breakfast"
       ],
       "ingredients": [
-        {
-          "name": "rolled oats",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "milk",
-          "amount": 100,
-          "unit": "ml"
-        },
-        {
-          "name": "greek yogurt",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "chia seeds",
-          "amount": 5,
-          "unit": "g"
-        },
-        {
-          "name": "date syrup",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "vanilla extract",
-          "amount": 3,
-          "unit": "ml"
-        },
-        {
-          "name": "banana",
-          "amount": 60,
-          "unit": "g"
-        },
-        {
-          "name": "nutella",
-          "amount": 20,
-          "unit": "g"
-        },
-        {
-          "name": "hazelnuts",
-          "amount": 20,
-          "unit": "g"
-        },
-        {
-          "name": "chocolate",
-          "amount": 20,
-          "unit": "g"
-        }
+        ["rolled oats", 50],
+        ["milk", 100],
+        ["greek yogurt", 50],
+        ["chia seeds", 5],
+        ["date syrup", 15],
+        ["vanilla extract", 3],
+        ["banana", 60],
+        ["nutella", 20],
+        ["hazelnuts", 20],
+        ["chocolate", 20]
       ],
       "cookingTimeInMinutes": 10,
       "nutrients": {
@@ -233,11 +113,7 @@
         "snack"
       ],
       "ingredients": [
-        {
-          "name": "bamba",
-          "amount": 80,
-          "unit": "g"
-        }
+        ["bamba", 50]
       ],
       "nutrients": {
         "calories": 427,
@@ -256,26 +132,10 @@
         "snack", "afternoonSnack"
       ],
       "ingredients": [
-        {
-          "name": "carrot",
-          "amount": 80,
-          "unit": "g"
-        },
-        {
-          "name": "cumin",
-          "amount": 10,
-          "unit": "g"
-        },
-        {
-          "name": "lemon",
-          "amount": 40,
-          "unit": "g"
-        },
-        {
-          "name": "salt",
-          "amount": 3,
-          "unit": "g"
-        }
+        ["carrot", 80],
+        ["cumin", 10],
+        ["lemon", 40],
+        ["salt", 3]
       ],
       "nutrients": {
         "calories": 63,
@@ -301,11 +161,7 @@
         "snack", "afternoonSnack"
       ],
       "ingredients": [
-        {
-          "name": "peanuts",
-          "amount": 44,
-          "unit": "g"
-        }
+        ["peanuts", 44]
       ],
       "nutrients": {
         "calories": 237,
@@ -324,21 +180,9 @@
         "afternoonSnack"
       ],
       "ingredients": [
-        {
-          "name": "lemon",
-          "amount": 1,
-          "unit": "unit"
-        },
-        {
-          "name": "sugar",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "heavy cream (33%)",
-          "amount": 200,
-          "unit": "ml"
-        }
+        ["lemon", 1],
+        ["sugar", 50],
+        ["heavy cream (33%)", 200]
       ],
       "nutrients": {
         "calories": 215.8,
@@ -357,123 +201,107 @@
       "storageTimeInHours": 78
     },
     {
-      "name": "Light Chicken Salad",
-      "meal": [
-        "lunch"
-      ],
+      "name": "Lentil Vegetable Curry",
+      "meal": ["lunch", "dinner"],
       "ingredients": [
-        {
-          "name": "cooked chicken breast",
-          "amount": 200,
-          "unit": "g"
-        },
-        {
-          "name": "mixed greens (spinach, lettuce, arugula)",
-          "amount": 150,
-          "unit": "g"
-        },
-        {
-          "name": "cherry tomatoes, halved",
-          "amount": 100,
-          "unit": "g"
-        },
-        {
-          "name": "cucumber, sliced",
-          "amount": 80,
-          "unit": "g"
-        },
-        {
-          "name": "red onion, thinly sliced",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "olive oil",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "lemon juice",
-          "amount": 10,
-          "unit": "ml"
-        },
-        {
-          "name": "salt and pepper, to taste",
-          "amount": "undefined"
-        }
+        ["dry brown lentils", 576],
+        ["vegetable oil", 15],
+        ["medium onions", 2],
+        ["garlic cloves", 3],
+        ["red hot chili pepper", 1],
+        ["ground turmeric", 1],
+        ["curry powder", 1],
+        ["garam masala", 1],
+        ["salt", 0.5],
+        ["ground black pepper", 0.5],
+        ["water", 1200],
+        ["vegetable bouillon cubes", 2],
+        ["medium potatoes", 2],
+        ["carrots", 2],
+        ["medium broccoli", 0.5],
+        ["fresh cilantro", 10],
+        ["fresh parsley", 10],
+        ["lemon slice", 5]
       ],
-      "cookingTimeInMinutes": 15,
-      "nutrients": {
-        "calories": 320,
-        "carbohydrates": 10,
-        "protein": 35,
-        "fat": 15,
-        "sodium": 0.2
-      },
       "recipe": [
-        "In a large bowl, combine cooked chicken breast, mixed greens, cherry tomatoes, cucumber, and red onion.",
-        "Drizzle olive oil and lemon juice over the salad. Season with salt and pepper according to your taste.",
-        "Toss the salad gently to combine all the ingredients. Serve immediately or refrigerate for later use."
+        "Add the oil to a large pot on medium-high heat. Once hot, add the onions and cook for 5 minutes. Add splashes of water as needed to deglaze the pot.",
+        "Add the garlic and red chilli, cook for another 2 minutes.",
+        "Add the spices and cook for 30 - 60 seconds, stirring throughout.",
+        "Add the water, bouillon, lentils, and potatoes. Bring to a boil, then reduce to a simmer, partially covered for 5 minutes.",
+        "Add the carrots and cook for another 10 minutes.",
+        "Optionally, blend half of the soup using an immersion blender to make it more creamy. Then add the broccoli and cook until tender, about 3 minutes.",
+        "Adjust salt and pepper to your liking, and enjoy!"
       ],
-      "storageTimeInHours": 48
+      "notes": [
+        "When we have time, we like to soak our lentils for at least a couple of hours beforehand to help decrease the cooking time and to help increase nutrient absorption. Soaking, though, is not necessary for this recipe; if using unsoaked lentils, add an extra 15 minutes to the cooking time. Learn more about the benefits of soaking in our PUL article.",
+        "In place of water and bouillon, you can add vegetable stock. In this case, you may need to add more salt to taste."
+      ],
+      "storage": "Store in an airtight container in the fridge for up to 1 week, or the freezer for up to 2 months."
     },
     {
-      "name": "Chicken Avocado Toast",
-      "meal": [
-        "lunch"
-      ],
+      "name": "Red Lentil Potato Soup",
+      "meal": ["lunch", "dinner"],
       "ingredients": [
-        {
-          "name": "cooked chicken breast, shredded",
-          "amount": 150,
-          "unit": "g"
-        },
-        {
-          "name": "avocado, mashed",
-          "amount": 1,
-          "unit": "unit"
-        },
-        {
-          "name": "whole grain bread slices",
-          "amount": 2,
-          "unit": "unit"
-        },
-        {
-          "name": "cherry tomatoes, sliced",
-          "amount": 50,
-          "unit": "g"
-        },
-        {
-          "name": "fresh basil leaves",
-          "amount": 10,
-          "unit": "g"
-        },
-        {
-          "name": "olive oil",
-          "amount": 10,
-          "unit": "ml"
-        },
-        {
-          "name": "salt and pepper, to taste",
-          "amount": "undefined"
-        }
+        ["vegetable oil", 3],
+        ["medium onion", 0.33],
+        ["water", 315],
+        ["vegetable bouillon cube", 0.33],
+        ["dry red lentils", 65],
+        ["medium potato", 0.33],
+        ["paprika powder", 2],
+        ["onion powder", 1],
+        ["garlic powder", 2],
+        ["balsamic vinegar", 3],
+        ["ground black pepper", 0.1],
+        ["salt", 0],
+        ["unsweetened coconut yogurt", 80],
+        ["whole wheat bread", 1],
+        ["fresh parsley", 10],
+        ["chili flakes", 10],
+        ["caramelized onions", 20]
       ],
-      "cookingTimeInMinutes": 15,
-      "nutrients": {
-        "calories": 380,
-        "carbohydrates": 25,
-        "protein": 30,
-        "fat": 18,
-        "sodium": 0.3
-      },
       "recipe": [
-        "Toast the whole grain bread slices until they are crispy and golden brown.",
-        "Spread mashed avocado evenly on the toasted bread slices.",
-        "Top with shredded chicken, sliced cherry tomatoes, and fresh basil leaves.",
-        "Drizzle with olive oil and season with salt and pepper according to your taste.",
-        "Serve immediately or refrigerate for later consumption."
+        "To a large pot on medium-high heat, add the oil. When hot, add the onion and sauté until golden, about 5 minutes.",
+        "Add in the remaining ingredients. Bring to a boil and then reduce to a simmer. Partially cover with a lid and cook for 15 minutes, or until the lentils and potato are cooked through.",
+        "Taste test, adding more salt and pepper if desired and add more water depending on how you like the consistency of your soup.",
+        "Serve with yogurt, bread, and any other desired toppings. Enjoy!"
       ],
-      "storageTimeInHours": 24
+      "storage": "Store in an airtight container in the fridge for up to 4 days. Store in the freezer for up to 2 months."
+    },
+    {
+      "name": "To-Go Miso Noodle Soup",
+      "meal": ["lunch", "dinner"],
+      "type": ["one-bowl", "one-pot"],
+      "cuisine": "Asian",
+      "difficulty": "easy",
+      "dietary": {
+        "contains": ["soy"],
+        "freeFrom": ["gluten", "peanut", "tree nut", "sesame"]
+      },
+      "servings": 1,
+      "totalTimeInMinutes": 10,
+      "prepTimeInMinutes": 5,
+      "cookTimeInMinutes": 5,
+      "ingredients": [
+        ["quick-cooking ramen noodles", 50],
+        ["miso paste", 2],
+        ["vegetable bouillon cube", 0.5],
+        ["firm tofu", 80],
+        ["button mushrooms", 55],
+        ["green onion", 1],
+        ["fresh spinach", 15],
+        ["boiling water", 360]
+      ],
+      "recipe": [
+        "Layer your soup ingredients in a mason jar or another heat-proof container. Noodles should go at the bottom, followed by the miso and bouillon cube, then tofu*, green onion, and lastly the mushrooms and spinach. Keep sealed in the fridge until ready to eat.",
+        "When ready to enjoy, carefully pour boiling water into your jar**, plus more if needed to fully submerge all the ingredients. Or transfer the contents into a bowl and pour the water on top to cover.",
+        "Add a cover, let sit for about 3 - 5 minutes or until the noodles are cooked. Garnish and enjoy!"
+      ],
+      "notes": [
+        "* If you have extra time: pan fry the tofu in a tsp of coconut oil to crisp up the sides.",
+        "** Mason jars can get very hot, so be sure to handle them with care. If the glass jar is cold, add a small splash of hot water to the jar first and swirl around before adding the rest."
+      ],
+      "storage": "Best if enjoyed right away after adding the boiling water. The prepped soup can be stored in the fridge for up to two days, so long as no water has been added."
     },
     {
       "name": "Grilled Salmon with Vegetables",
@@ -481,51 +309,15 @@
         "dinner"
       ],
       "ingredients": [
-        {
-          "name": "salmon fillet",
-          "amount": 150,
-          "unit": "g"
-        },
-        {
-          "name": "asparagus spears",
-          "amount": 100,
-          "unit": "g"
-        },
-        {
-          "name": "bell peppers (assorted colors), sliced",
-          "amount": 150,
-          "unit": "g"
-        },
-        {
-          "name": "zucchini, sliced",
-          "amount": 100,
-          "unit": "g"
-        },
-        {
-          "name": "olive oil",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "garlic powder",
-          "amount": 5,
-          "unit": "g"
-        },
-        {
-          "name": "lemon zest",
-          "amount": 5,
-          "unit": "g"
-        },
-        {
-          "name": "salt",
-          "amount": 2,
-          "unit": "g"
-        },
-        {
-          "name": "pepper",
-          "amount": 2,
-          "unit": "g"
-        }
+        ["salmon fillet", 150],
+        ["asparagus spears", 100],
+        ["bell peppers (assorted colors), sliced", 150],
+        ["zucchini, sliced", 100],
+        ["olive oil", 15],
+        ["garlic powder", 5],
+        ["lemon zest", 5],
+        ["salt", 2],
+        ["pepper", 2]
       ],
       "cookingTimeInMinutes": 20,
       "nutrients": {
@@ -549,76 +341,19 @@
         "dinner"
       ],
       "ingredients": [
-        {
-          "name": "paprika",
-          "amount": 0.5,
-          "unit": "tsp"
-        },
-        {
-          "name": "dried oregano",
-          "amount": 0.25,
-          "unit": "tsp"
-        },
-        {
-          "name": "dried thyme",
-          "amount": 0.25,
-          "unit": "tsp"
-        },
-        {
-          "name": "garlic powder",
-          "amount": 0.13,
-          "unit": "tsp"
-        },
-        {
-          "name": "onion powder",
-          "amount": 0.13,
-          "unit": "tsp"
-        },
-        {
-          "name": "salt",
-          "amount": 0.06,
-          "unit": "tsp"
-        },
-        {
-          "name": "pepper",
-          "amount": 0.06,
-          "unit": "tsp"
-        },
-        {
-          "name": "boneless, skinless chicken thighs",
-          "amount": 0.31,
-          "unit": "lbs"
-        },
-        {
-          "name": "cooking oil",
-          "amount": 0.5,
-          "unit": "Tbsp",
-          "divided": true
-        },
-        {
-          "name": "yellow onion",
-          "amount": 0.25,
-          "unit": "unit",
-          "diced": true
-        },
-        {
-          "name": "long-grain white rice",
-          "amount": 0.25,
-          "unit": "cup",
-          "uncooked": true
-        },
-        {
-          "name": "vegetable broth",
-          "amount": 0.44,
-          "unit": "cups"
-        },
-        {
-          "name": "chopped parsley",
-          "amount": 0.25,
-          "unit": "Tbsp",
-          "optional": true,
-          "garnish": true
-        }
+        ["paprika", 0.5],
+        ["dried oregano", 0.25],
+        ["dried thyme", 0.25],
+        ["garlic powder", 0.13],
+        ["onion powder", 0.13],
+        ["salt", 0.06],
+        ["pepper", 0.06],
+        ["boneless, skinless chicken thighs", 0.31],
+        ["cooking oil", 0.5, true],
+        ["yellow onion", 0.25, true],
+        ["long-grain white rice", 0.25, true],
+        ["vegetable broth", 0.44],
+        ["chopped parsley", 0.25, true, true]
       ],
       "instructions": [
         "Combine the paprika, oregano, thyme, garlic powder, onion powder, salt, and pepper in a small bowl.",
@@ -652,61 +387,18 @@
         "dinner"
       ],
       "ingredients": [
-        {
-          "name": "canned tuna in water, drained",
-          "amount": 200,
-          "unit": "g"
-        },
-        {
-          "name": "spaghetti or your favorite pasta",
-          "amount": 150,
-          "unit": "g"
-        },
-        {
-          "name": "olive oil",
-          "amount": 15,
-          "unit": "ml"
-        },
-        {
-          "name": "garlic clove, minced",
-          "amount": 1,
-          "unit": "unit"
-        },
-        {
-          "name": "canned crushed tomatoes",
-          "amount": 200,
-          "unit": "g"
-        },
-        {
-          "name": "dried basil",
-          "amount": 3,
-          "unit": "g"
-        },
-        {
-          "name": "dried oregano",
-          "amount": 3,
-          "unit": "g"
-        },
-        {
-          "name": "red pepper flakes, optional",
-          "amount": 2,
-          "unit": "g"
-        },
-        {
-          "name": "salt and black pepper",
-          "amount": 2,
-          "unit": "g"
-        },
-        {
-          "name": "fresh parsley, chopped (for garnish)",
-          "amount": 30,
-          "unit": "g"
-        },
-        {
-          "name": "grated Parmesan cheese (optional, for serving)",
-          "amount": 30,
-          "unit": "g"
-        }
+        ["canned tuna in water, drained", 200],
+        ["spaghetti", 150],
+        ["olive oil", 15],
+        ["garlic clove", 1],
+        ["canned crushed tomatoes", 200],
+        ["dried basil", 3],
+        ["dried oregano", 3],
+        ["red pepper flakes", 2],
+        ["salt", 2],
+        ["black pepper", 2],
+        ["fresh parsley", 30],
+        ["grated Parmesan cheese", 30]
       ],
       "cookingTimeInMinutes": 20,
       "nutrients": {
