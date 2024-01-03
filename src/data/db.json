@@ -26,7 +26,7 @@
         ["strawberry jam", 15],
         ["creamy peanut butter", 15],
         ["strawberry", 50],
-        ["peanuts", 40]
+        ["peanuts", 20]
       ],
       "recipe": [
         "Combine old fashioned oats, seeds, yoghurt and vanilla extract, sweetener and milk (it is convenient to make it in a glass) with all basic ingredients",
@@ -204,24 +204,24 @@
       "name": "Lentil Vegetable Curry",
       "meal": ["lunch", "dinner"],
       "ingredients": [
-        ["dry brown lentils", 576],
-        ["vegetable oil", 15],
-        ["medium onions", 2],
-        ["garlic cloves", 3],
+        ["brown lentils", 576],
+        ["canola oil", 15],
+        ["yellow onion", 340],
+        ["garlic clove", 15],
         ["red hot chili pepper", 1],
         ["ground turmeric", 1],
         ["curry powder", 1],
         ["garam masala", 1],
-        ["salt", 0.5],
+        ["salt", 5],
         ["ground black pepper", 0.5],
         ["water", 1200],
-        ["vegetable bouillon cubes", 2],
-        ["medium potatoes", 2],
-        ["carrots", 2],
-        ["medium broccoli", 0.5],
+        ["vegetable bouillon cubes", 11],
+        ["potato", 346],
+        ["carrot", 60],
+        ["broccoli", 74],
         ["fresh cilantro", 10],
         ["fresh parsley", 10],
-        ["lemon slice", 5]
+        ["lemon", 5]
       ],
       "recipe": [
         "Add the oil to a large pot on medium-high heat. Once hot, add the onions and cook for 5 minutes. Add splashes of water as needed to deglaze the pot.",
@@ -242,11 +242,11 @@
       "name": "Red Lentil Potato Soup",
       "meal": ["lunch", "dinner"],
       "ingredients": [
-        ["vegetable oil", 3],
-        ["medium onion", 0.33],
+        ["canola oil", 3],
+        ["yellow onion", 60],
         ["water", 315],
         ["vegetable bouillon cube", 0.33],
-        ["dry red lentils", 65],
+        ["red lentils", 65],
         ["medium potato", 0.33],
         ["paprika powder", 2],
         ["onion powder", 1],
@@ -438,6 +438,12 @@
     "bell peppers": {
       "unit": "g"
     },
+    "broccoli": {
+      "unit": "g",
+      "alternateUnits": [{
+        "medium": 148
+      }]
+    },
     "canned crushed tomatoes": {
       "unit": "g"
     },
@@ -445,7 +451,10 @@
       "unit": "g"
     },
     "carrot": {
-      "unit": "g"
+      "unit": "g",
+      "alternateUnits": [{
+        "medium": 30
+      }]
     },
     "celery": {
       "unit": "g"
@@ -543,13 +552,13 @@
     "parmesan cheese": {
       "unit": "g"
     },
-    "pecan": {
+    "paprika": {
       "unit": "g"
     },
     "peanut": {
       "unit": "g"
     },
-    "paprika": {
+    "pecan": {
       "unit": "g"
     },
     "pepper": {
@@ -557,6 +566,12 @@
     },
     "pistachios": {
       "unit": "g"
+    },
+    "potato": {
+      "unit": "g",
+      "alternateUnits": [{
+        "medium potato": 173
+      }]
     },
     "pumpkin seeds": {
       "unit": "g"
@@ -598,7 +613,10 @@
       "unit": "g"
     },
     "yellow onion": {
-      "unit": "g"
+      "unit": "g",
+      "alternateUnits": [{
+        "medium onion": 170
+      }]
     },
     "zucchini": {
       "unit": "g"
