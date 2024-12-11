@@ -4,6 +4,12 @@ import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
+const CONFIG_VALUES = {
+  dbUrl: 'MONGODB_URL',
+  dbName: 'MONGODB_NAME',
+  envType: 'ENV',
+};
+
 bootstrap();
 
 async function bootstrap() {
@@ -11,7 +17,8 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   try {
-    checkConfiguration(configService);
+    const appConfig = getAppConfig(configService);
+    checkAppConfiguration(appConfig);
   } catch (e) {
     console.error(e);
     process.exit(1);
@@ -21,14 +28,6 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT ?? 3000);
 }
-
-// function initializeDatabase(mongoDBUri: string) {
-// Получить данные
-// Проверить подключение
-// const typeOrmConnection = TypeOrmModule.
-// Проверить наличие базы
-// Если нет создать базу, если есть продолжить
-// }
 
 function configureSwagger(app: INestApplication<any>) {
   const config = new DocumentBuilder()
@@ -42,16 +41,18 @@ function configureSwagger(app: INestApplication<any>) {
   SwaggerModule.setup('api', app, documentFactory);
 }
 
-function checkConfiguration(configService) {
-  const config = {
-    dbUrl: configService.get('MONGODB_URL'),
-    dbName: configService.get('MONGODB_NAME'),
-    envType: configService.get('ENV'),
-  };
-
+function checkAppConfiguration(config) {
   Object.entries(config).forEach(([key, value]) => {
     if (!value) {
       throw new Error(`Configuration ${key} is not defined or empty.`);
     }
   });
+}
+
+function getAppConfig(configService) {
+  return {
+    dbUrl: configService.get(CONFIG_VALUES.dbUrl),
+    dbName: configService.get(CONFIG_VALUES.dbName),
+    envType: configService.get(CONFIG_VALUES.dbUrl),
+  };
 }
