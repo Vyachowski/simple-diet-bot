@@ -3,4 +3,4 @@ start:
 dev:
 	nest start --watch
 lint:
-	npm ru lint
+	npm run lint
