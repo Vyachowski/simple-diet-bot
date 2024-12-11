@@ -56,7 +56,7 @@ Bot is available in telegram: [Bity Smarty Bot](https://t.me/bity_smarty_bot)
 #### Features:
 1. Provide a 3-day menu from preloaded variants with pinning in chat
 2. A plain grocery list with grouping in sections
-3. Recipes only for multi cooker
+3. Recipes mostly for multi cooker (one-pot recipes)
 4. English version
 5. One user only
 
