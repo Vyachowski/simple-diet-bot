@@ -4,7 +4,7 @@ import {
   Post,
   Body,
   // Patch,
-  Param,
+  // Param,
   // Delete,
 } from '@nestjs/common';
 import { MenuService } from './menu.service';
@@ -13,7 +13,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 // import { UpdateMenuDto } from './dto/update-menu.dto';
 
 @ApiTags('Menu')
-@Controller('menu')
+@Controller('api/menu')
 export class MenuController {
   constructor(private readonly menuService: MenuService) {}
 
@@ -28,10 +28,10 @@ export class MenuController {
     return this.menuService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.menuService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.menuService.findOne(+id);
+  // }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateMenuDto: UpdateMenuDto) {

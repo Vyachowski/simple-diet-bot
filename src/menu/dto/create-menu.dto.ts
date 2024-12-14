@@ -1,17 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsJSON } from 'class-validator';
+import basicMenu from 'src/common/basic-menu';
 import { Meal, Recipe } from 'src/common/types';
 
 export class CreateMenuDto {
   @ApiProperty({
     type: 'object',
-    example: {
-      breakfast: ['pancakes', 'coffee'],
-      bruch: ['food'],
-      lunch: ['salad', 'chicken'],
-      snack: ['fruit', 'nuts'],
-      dinner: ['steak', 'vegetables'],
-    },
+    example: basicMenu,
     additionalProperties: null,
   })
   @IsJSON()
