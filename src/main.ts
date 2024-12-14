@@ -1,5 +1,7 @@
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { join } from 'path';
 import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -7,14 +9,18 @@ import { ConfigService } from '@nestjs/config';
 bootstrap();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
 
   try {
     const appConfig = getAppConfig(configService);
+
     checkAppConfig(appConfig);
     configureSwagger(app);
 
+    app.useStaticAssets(join(__dirname, '..', 'public'));
+    app.setBaseViewsDir(join(__dirname, '..', 'views'));
+    app.setViewEngine('pug');
     await app.listen(appConfig.appPort);
   } catch (e) {
     console.error('Application failed to start:', e.message);
