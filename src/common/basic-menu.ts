@@ -13,6 +13,8 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
       instruction:
         'Whisk eggs and cook in a non-stick pan. Slice avocado and serve with sautéed spinach.',
       calories: 452,
+      image:
+        'https://www.tasteofhome.com/wp-content/uploads/2024/04/Avocado-Scrambled-Eggs_FT24_10302_ST_0515_2.jpg',
     },
     [Meal.Brunch]: {
       name: 'Cottage Cheese with Walnuts',
@@ -23,6 +25,8 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
       meal: Meal.Brunch,
       instruction: 'Serve cottage cheese topped with chopped walnuts.',
       calories: 310,
+      image:
+        'https://www.hsnstore.eu/blog/wp-content/uploads/sites/5/2020/02/cottage-cheese-honey-wanuts-768x384.jpg',
     },
     [Meal.Lunch]: {
       name: 'Grilled Chicken with Quinoa and Vegetables',
@@ -36,6 +40,8 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
       instruction:
         'Grill chicken breast. Cook quinoa according to package instructions. Steam broccoli and carrots.',
       calories: 452,
+      image:
+        'https://www.completelydelicious.com/wp-content/uploads/2023/05/grilled-chicken-quinoa-salad-5-768x1024.jpg',
     },
     [Meal.Snack]: {
       name: 'Greek Yogurt with Berries and Nuts',
@@ -48,6 +54,8 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
       instruction:
         'Mix Greek yogurt with fresh blueberries and top with chopped almonds.',
       calories: 248,
+      image:
+        'https://lh3.ggpht.com/_BizpeaUzxq8/Sc2CnomPpeI/AAAAAAAAA9g/zwyx8yREB4o/s800/greek-yogurt.jpg',
     },
     [Meal.Dinner]: {
       name: 'Salmon with Sweet Potato and Asparagus',
@@ -60,6 +68,8 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
       instruction:
         'Bake salmon with olive oil and herbs. Roast sweet potato and asparagus.',
       calories: 450,
+      image:
+        'https://catzinthekitchen.com/wp-content/uploads/2016/11/One-Pan-Salmon-PIN.jpg',
     },
   },
 };
