@@ -1,15 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateMenuDto } from './dto/create-menu.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Menu } from './entities/menu.entity';
+import basicMenu from 'src/common/basic-menu';
 
 @Injectable()
-export class MenuService {
+export class MenuService implements OnModuleInit {
   constructor(
     @InjectRepository(Menu)
     private menuRepository: Repository<Menu>,
   ) {}
+
+  async onModuleInit() {
+    const initialData = { meals: basicMenu };
+
+    try {
+      const count = await this.menuRepository.count();
+
+      if (count < 0) {
+        console.log('Menu collection exists and contains records.');
+      } else {
+        console.log(
+          'Menu collection exists but is empty, data will be created.',
+        );
+        await this.menuRepository.create(initialData);
+      }
+    } catch {
+      console.error('Error checking menu collection, data will be created.');
+      await this.menuRepository.create(initialData);
+    }
+  }
+
   async create(createMenuDto: CreateMenuDto) {
     return await this.menuRepository.create(createMenuDto);
   }
@@ -29,9 +51,4 @@ export class MenuService {
   // remove(id: number) {
   //   return `This action removes a #${id} menu`;
   // }
-
-  async hasRecords(): Promise<boolean> {
-    const count = await this.menuRepository.count();
-    return count > 0;
-  }
 }
