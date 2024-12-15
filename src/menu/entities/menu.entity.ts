@@ -1,10 +1,10 @@
 import { Meal, Recipe } from 'src/common/types';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ObjectIdColumn } from 'typeorm';
 
 @Entity('menu')
 export class Menu {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @ObjectIdColumn()
+  _id: any;
 
   @Column('simple-json')
   meals: Record<Meal, Recipe>;

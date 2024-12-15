@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { MenuModule } from './menu/menu.module';
+import { Menu } from './menu/entities/menu.entity';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { MenuModule } from './menu/menu.module';
       type: 'mongodb',
       url: `${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`,
       authSource: 'admin',
+      entities: [Menu],
     }),
     MenuModule,
   ],

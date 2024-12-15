@@ -20,12 +20,13 @@ export class MenuController {
   @Post()
   @ApiBody({ type: CreateMenuDto })
   create(@Body() createMenuDto: CreateMenuDto) {
-    return this.menuService.create(createMenuDto);
+    console.log(createMenuDto, this.menuService);
+    // return this.menuService?.create(createMenuDto);
   }
 
   @Get()
   findAll() {
-    return this.menuService.findAll();
+    // return this.menuService?.findAll();
   }
 
   // @Get(':id')
