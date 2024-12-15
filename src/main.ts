@@ -1,34 +1,35 @@
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { join } from 'path';
 import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-const CONFIG_VALUES = {
-  dbUrl: 'MONGODB_URL',
-  dbName: 'MONGODB_NAME',
-  envType: 'ENV',
-};
-
 bootstrap();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
 
   try {
     const appConfig = getAppConfig(configService);
-    checkAppConfiguration(appConfig);
+
+    checkAppConfig(appConfig);
+    configureSwagger(app);
+
+    app.useStaticAssets(join(__dirname, '..', 'public'));
+    app.setBaseViewsDir(join(__dirname, '..', 'views'));
+    app.setViewEngine('pug');
+    await app.listen(appConfig.appPort);
   } catch (e) {
-    console.error(e);
+    console.error('Application failed to start:', e.message);
+    console.error(e.stack);
     process.exit(1);
   }
-
-  configureSwagger(app);
-
-  await app.listen(process.env.PORT ?? 3000);
 }
 
+// SECTION: App configuration
 function configureSwagger(app: INestApplication<any>) {
   const config = new DocumentBuilder()
     .setTitle('Clean diet app API docs')
@@ -41,18 +42,30 @@ function configureSwagger(app: INestApplication<any>) {
   SwaggerModule.setup('api', app, documentFactory);
 }
 
-function checkAppConfiguration(config) {
+function checkAppConfig(config) {
   Object.entries(config).forEach(([key, value]) => {
     if (!value) {
-      throw new Error(`Configuration ${key} is not defined or empty.`);
+      throw new Error(
+        `Missing configuration: "${key}" is not defined or empty.`,
+      );
     }
   });
 }
 
 function getAppConfig(configService) {
+  const DEFAULT_APP_PORT = 3000;
+
   return {
-    dbUrl: configService.get(CONFIG_VALUES.dbUrl),
-    dbName: configService.get(CONFIG_VALUES.dbName),
-    envType: configService.get(CONFIG_VALUES.dbUrl),
+    dbUrl: configService.get(ConfigRecord.dbUrl),
+    dbName: configService.get(ConfigRecord.dbName),
+    envType: configService.get(ConfigRecord.envType),
+    appPort: configService.get(ConfigRecord.appPort) ?? DEFAULT_APP_PORT,
   };
+}
+
+enum ConfigRecord {
+  dbUrl = 'MONGODB_URL',
+  dbName = 'MONGODB_NAME',
+  envType = 'ENV',
+  appPort = 'PORT',
 }

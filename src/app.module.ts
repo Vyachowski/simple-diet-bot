@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { MenuModule } from './menu/menu.module';
+import { Menu } from './menu/entities/menu.entity';
+import { MenuService } from './menu/menu.service';
 
 @Module({
   imports: [
@@ -12,10 +14,11 @@ import { ConfigModule } from '@nestjs/config';
       type: 'mongodb',
       url: `${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`,
       authSource: 'admin',
+      entities: [Menu],
     }),
-    UsersModule,
+    MenuModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, MenuService],
 })
 export class AppModule {}
