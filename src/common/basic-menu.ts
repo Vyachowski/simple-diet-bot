@@ -89,8 +89,7 @@ export const groceryList = [
   { name: 'almonds', amountInGramms: 20 },
   { name: 'salmon', amountInGramms: 150 },
   { name: 'sweet potato', amountInGramms: 200 },
-  { name: 'asparagus', amountInGramms: 100 }
+  { name: 'asparagus', amountInGramms: 100 },
 ];
-
 
 export default basicMenu;
