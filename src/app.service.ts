@@ -9,6 +9,6 @@ export class AppService {
     const allMenus = await this.menuService.findAll();
     const randomIndex = Math.floor(Math.random() * allMenus.length);
 
-    return allMenus[randomIndex];
+    return allMenus[randomIndex].meals;
   }
 }

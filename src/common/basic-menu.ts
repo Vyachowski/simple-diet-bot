@@ -74,4 +74,23 @@ const basicMenu: { meals: Record<Meal, Recipe> } = {
   },
 };
 
+export const groceryList = [
+  { name: 'egg', amountInGramms: 200 },
+  { name: 'avocado', amountInGramms: 100 },
+  { name: 'spinach', amountInGramms: 50 },
+  { name: 'cottage cheese', amountInGramms: 200 },
+  { name: 'walnuts', amountInGramms: 20 },
+  { name: 'chicken breast', amountInGramms: 150 },
+  { name: 'quinoa', amountInGramms: 120 },
+  { name: 'broccoli', amountInGramms: 100 },
+  { name: 'carrots', amountInGramms: 80 },
+  { name: 'greek yogurt', amountInGramms: 150 },
+  { name: 'blueberries', amountInGramms: 50 },
+  { name: 'almonds', amountInGramms: 20 },
+  { name: 'salmon', amountInGramms: 150 },
+  { name: 'sweet potato', amountInGramms: 200 },
+  { name: 'asparagus', amountInGramms: 100 }
+];
+
+
 export default basicMenu;
