@@ -2,4 +2,19 @@ extends layout
 
 block content
   main 
-    p
+    h1.text-center Registration
+    section.container
+      h2.visually-hidden Registration form
+      form(action="POST")
+        div.mb-3
+          label.form-label(for="email") Email
+          input#email.form-control(type="text" name="email" placeholder="example@domain.com")
+        div.mb-3
+          label.form-label(for="password") Password
+          input#password.form-control(type="password" name="password" placeholder='sTr0nGP/\\$$worD')
+        div.mb-3
+          label.form-label(for="passwordConfirmation")
+          input#passwordConfirmation.form-control(type="password" name="passwordConfirmation" placeholder='sTr0nGP/\\$$worD')
+        div.d-grid.gap-2
+          button.btn.btn-primary(type='submit') Sign up
+        

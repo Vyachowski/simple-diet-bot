@@ -14,7 +14,7 @@ import { CreateAuthDto } from './dto/create-auth.dto';
 
 @Controller('auth')
 export class AuthPageController {
-  @Get('/register')
+  @Get('/')
   @Render('auth')
   renderAuthPage() {
     return { data: '' };
