@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { Meal, Recipe } from 'src/common/types';
 import { Column, CreateDateColumn, Entity, ObjectIdColumn } from 'typeorm';
 
-@Entity('menu')
+@Entity('menus')
 export class Menu {
   @ObjectIdColumn()
   _id: ObjectId;

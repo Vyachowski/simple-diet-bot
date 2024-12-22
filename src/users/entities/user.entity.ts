@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { Column, CreateDateColumn, Entity, ObjectIdColumn } from 'typeorm';
 
-@Entity('user')
+@Entity('users')
 export class User {
   @ObjectIdColumn()
   _id: ObjectId;
