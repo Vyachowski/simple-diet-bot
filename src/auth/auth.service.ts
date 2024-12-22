@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
@@ -35,6 +35,29 @@ export class AuthService {
       refreshToken: this.jwtService.sign(payload, {
         expiresIn: '7d',
       }),
+    };
+  }
+
+  async register(username: string, password: string) {
+    const existingUser = await this.usersService.findOneByUsername(username);
+
+    if (existingUser) {
+      throw new ConflictException('Username already exists');
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await this.usersService.create({
+      username,
+      password: hashedPassword,
+    });
+
+    const payload = { username: newUser.username, sub: newUser._id.toString() };
+
+    return {
+      accessToken: this.jwtService.sign(payload, { expiresIn: '15m' }),
+      refreshToken: this.jwtService.sign(payload, {
+        expiresIn: '7d',
+      }),
+      user: newUser,
     };
   }
 }

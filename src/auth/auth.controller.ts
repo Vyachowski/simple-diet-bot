@@ -10,6 +10,7 @@ import {
   UseGuards,
   Request,
   Res,
+  Session,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -29,7 +30,7 @@ export class AuthPageController {
 
   @Get('/register')
   @Render('register')
-  renderAuthPage() {
+  renderRegisterPage() {
     return;
   }
 }
@@ -38,14 +39,43 @@ export class AuthPageController {
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get('/')
-  getAuthData() {
-    return 'your auth data';
+  getProfile(@Request() req) {
+    return req.user;
   }
 
   @Post('/register')
-  register(@Body() createAuthDto: RegisterDto) {
-    return createAuthDto.toString();
+  async register(
+    @Body() registerDto: RegisterDto,
+    @Session() session,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const { username, password, passwordConfirmation } = registerDto;
+
+    if (password !== passwordConfirmation) {
+      // res.flash('error', 'Пароли не совпадают');
+      return res.redirect('/register');
+    }
+
+    try {
+      const user = await this.authService.register(username, password);
+
+      res.cookie('access_token', user.accessToken, {
+        httpOnly: true,
+        maxAge: 15 * 60 * 1000, // 15 minutes
+      });
+      res.cookie('refresh_token', user.refreshToken, {
+        httpOnly: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      });
+
+      res.redirect('/');
+    } catch (e) {
+      console.error(e?.message);
+      console.log(e?.stack);
+      res.redirect('/register');
+    }
   }
 
   @UseGuards(LocalAuthGuard)
@@ -71,12 +101,6 @@ export class AuthController {
   @Post('/logout')
   async logout(@Request() req) {
     return req.logout();
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('/profile')
-  getProfile(@Request() req) {
-    return req.user;
   }
 
   @Post('/refresh-token')
