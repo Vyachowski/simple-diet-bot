@@ -1,9 +1,14 @@
+export enum Environment {
+  Development = 'development',
+  Production = 'production',
+}
+
 export enum Meal {
-  Breakfast = 'Breakfast',
-  Brunch = 'Brunch',
-  Lunch = 'Lunch',
-  Snack = 'Snack',
-  Dinner = 'Dinner',
+  Breakfast = 'breakfast',
+  Brunch = 'brunch',
+  Lunch = 'lunch',
+  Snack = 'snack',
+  Dinner = 'dinner',
 }
 
 export interface Recipe {

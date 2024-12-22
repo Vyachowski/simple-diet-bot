@@ -11,17 +11,17 @@ html(lang="en")
     header
       nav.navbar.navbar-expand-lg.bg-body-tertiary
         .container-fluid
-          a.navbar-brand(href='#') Clean Diet
+          a.navbar-brand(href='/') Clean Diet
           button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarText.collapse.navbar-collapse
             ul.navbar-nav.me-auto.mb-2.mb-lg-0
               li.nav-item
-                a.nav-link.active(aria-current='page' href='#') Home
+                a.nav-link.active(aria-current='page' href='/') Home
             div
-              button.btn.btn-link
+              a.btn.btn-link(href="/login")
                 | Log in
-              button.btn.btn-primary
+              a.btn.btn-primary(href="/sign-up")
                 | Sign Up
     block content 
     footer

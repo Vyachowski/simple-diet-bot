@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import * as cookieParser from 'cookie-parser';
 
 bootstrap();
 
@@ -18,6 +19,7 @@ async function bootstrap() {
     checkAppConfig(appConfig);
     configureSwagger(app);
 
+    app.use(cookieParser());
     app.useStaticAssets(join(__dirname, '..', 'public'));
     app.setBaseViewsDir(join(__dirname, '..', 'views'));
     app.setViewEngine('pug');

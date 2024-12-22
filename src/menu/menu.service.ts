@@ -36,7 +36,7 @@ export class MenuService implements OnModuleInit {
   }
 
   async create(createMenuDto: CreateMenuDto) {
-    const menu = this.dataSource.mongoManager.create(Menu, createMenuDto);
+    const menu = this.dataSource.mongoManager.create(Menu, createMenuDto.menu);
     return await this.dataSource.mongoManager.save(menu);
   }
 
