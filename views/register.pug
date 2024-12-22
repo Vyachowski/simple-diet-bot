@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+  main.p-5
+    h1.visually-hidden Registration page
+    .container
+      .row.justify-content-center
+        .col-6
+          section.card.p-4
+            h2.text-center Registration form
+            form(action="/api/auth/register" method="POST")
+              div.mb-3
+                label.form-label(for="login") Username
+                input#email.form-control(type="text" name="username" placeholder="Tester")
+              div.mb-3
+                label.form-label(for="password") Password
+                input#password.form-control(type="password" name="password" placeholder='sTr0nGP/\\$$worD')
+              div.mb-4
+                label.form-label(for="passwordConfirmation") Password confirmation
+                input#passwordConfirmation.form-control(type="password" name="passwordConfirmation" placeholder='sTr0nGP/\\$$worD')
+              div.d-grid.gap-2
+                button.btn.btn-primary(type='submit') Register
+              

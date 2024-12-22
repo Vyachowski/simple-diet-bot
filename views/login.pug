@@ -1,0 +1,20 @@
+extends layout 
+
+block content
+  main.p-5
+    h1.visually-hidden Login page
+    .container
+      .row.justify-content-center
+        .col-6
+          section.card.p-4
+            h2.text-center Login form
+            form(action="/api/auth/login" method="POST")
+              div.mb-3
+                label.form-label(for="login") Username
+                input#email.form-control(type="text" name="username" placeholder="Tester")
+              div.mb-4
+                label.form-label(for="password") Password
+                input#password.form-control(type="password" name="password" placeholder='password')
+              div.d-grid.gap-2
+                button.btn.btn-primary(type='submit') Log in
+          
