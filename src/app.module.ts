@@ -8,6 +8,7 @@ import { Menu } from './menu/entities/menu.entity';
 import { MenuService } from './menu/menu.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { UsersModule } from './users/users.module';
       type: 'mongodb',
       url: `${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`,
       authSource: 'admin',
-      entities: [Menu],
+      entities: [Menu, User],
     }),
     MenuModule,
     AuthModule,
