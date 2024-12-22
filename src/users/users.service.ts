@@ -19,6 +19,15 @@ export class UsersService implements OnModuleInit {
     const env = this.configService.get('ENV');
 
     if (env.toLowerCase() === Environment.Development) {
+      const existingUser = await this.dataSource.mongoManager.findOneBy(User, {
+        username: this.configService.get('TEST_USERNAME'),
+      });
+
+      if (existingUser) {
+        console.info('Test user already exists. Skipping creation.');
+        return;
+      }
+
       const saltOrRounds = 10;
       const password = this.configService.get('TEST_PASSWORD');
       const hash = await bcrypt.hash(password, saltOrRounds);
