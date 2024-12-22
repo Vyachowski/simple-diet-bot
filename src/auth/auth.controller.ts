@@ -7,9 +7,13 @@ import {
   // Param,
   // Delete,
   Render,
+  UseGuards,
+  Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { LocalAuthGuard } from './guards/local-auth.guard';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
 
 @Controller('auth')
@@ -32,17 +36,19 @@ export class AuthController {
 
   @Post('/register')
   register(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.create(createAuthDto);
+    return createAuthDto.toString();
   }
 
+  @UseGuards(LocalAuthGuard)
   @Post('/login')
-  login() {
-    return this.authService.findAll();
+  async login(@Request() req) {
+    return req.user;
   }
 
-  @Post('/logout')
-  logout() {
-    return this.authService.findAll();
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/logout')
+  async logout(@Request() req) {
+    return req.logout();
   }
 
   @Post('/refresh-token')

@@ -17,13 +17,17 @@ export class UsersService implements OnModuleInit {
 
   async onModuleInit() {
     const env = this.configService.get('ENV');
+    const testUsername = this.configService.get('TEST_USERNAME');
 
     if (env.toLowerCase() === Environment.Development) {
-      const existingUser = await this.dataSource.mongoManager.findOneBy(User, {
-        username: this.configService.get('TEST_USERNAME'),
-      });
+      const existingTestUser = await this.dataSource.mongoManager.findOneBy(
+        User,
+        {
+          username: testUsername,
+        },
+      );
 
-      if (existingUser) {
+      if (existingTestUser) {
         console.info('Test user already exists. Skipping creation.');
         return;
       }
@@ -33,7 +37,7 @@ export class UsersService implements OnModuleInit {
       const hash = await bcrypt.hash(password, saltOrRounds);
 
       const testUser: CreateUserDto = {
-        username: this.configService.get('TEST_USERNAME'),
+        username: testUsername,
         password: hash,
       };
 
@@ -65,6 +69,10 @@ export class UsersService implements OnModuleInit {
 
   async findOne(id: number) {
     return await this.dataSource.mongoManager.findOneBy(User, id);
+  }
+
+  async findOneByUsername(username: string) {
+    return await this.dataSource.mongoManager.findOneBy(User, { username });
   }
 
   // TODO: Add user password updating
