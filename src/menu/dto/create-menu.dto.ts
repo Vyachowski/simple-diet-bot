@@ -10,5 +10,5 @@ export class CreateMenuDto {
     additionalProperties: null,
   })
   @IsJSON()
-  meals: Record<Meal, Recipe>;
+  menu: Record<Meal, Recipe>;
 }
