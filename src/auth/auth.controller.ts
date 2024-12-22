@@ -9,12 +9,14 @@ import {
   Render,
   UseGuards,
   Request,
+  Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 // import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { Response } from 'express';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
 
 @Controller('auth')
@@ -42,8 +44,21 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
-  async login(@Request() req) {
-    return this.authService.login(req.user);
+  async login(@Request() req, @Res({ passthrough: true }) res: Response) {
+    const { accessToken, refreshToken } = await this.authService.login(
+      req.user,
+    );
+
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      maxAge: 15 * 60 * 1000,
+    });
+    res.cookie('refreshTOken', refreshToken, {
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
+    res.redirect('/');
   }
 
   @UseGuards(LocalAuthGuard)
