@@ -50,7 +50,7 @@ export class AuthController {
     if (password !== passwordConfirmation) {
       // TODO: ADD FLASH MESSAGES BASED ON RESULT OF VALIDATION
       // res.flash('error', 'Password and password confirmation are not equal');
-      return res.redirect('/sign-in');
+      return res.redirect('/sign-up');
     }
 
     try {
@@ -72,7 +72,7 @@ export class AuthController {
     } catch (e) {
       console.error(e?.message);
       console.log(e?.stack);
-      res.redirect('/register');
+      res.redirect('/sign-up');
     }
   }
 
