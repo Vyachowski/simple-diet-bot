@@ -14,6 +14,7 @@ import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 // import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './guards/local-auth.guard';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
 
 @Controller('auth')
@@ -46,9 +47,15 @@ export class AuthController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('auth/logout')
+  @Post('/logout')
   async logout(@Request() req) {
     return req.logout();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 
   @Post('/refresh-token')
