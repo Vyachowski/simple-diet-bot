@@ -1,3 +1,8 @@
+export enum Environment {
+  Development = 'development',
+  Production = 'production',
+}
+
 export enum Meal {
   Breakfast = 'breakfast',
   Brunch = 'brunch',

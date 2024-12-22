@@ -12,6 +12,12 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: false })
+  inactive: boolean;
+
+  @Column()
+  activeMenuId: ObjectId;
+
   @CreateDateColumn()
   createdAt: Date;
 }
