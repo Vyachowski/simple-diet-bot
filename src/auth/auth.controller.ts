@@ -12,19 +12,25 @@ import {
   Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
+import { RegisterDto } from './dto/register.dto';
 // import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Response } from 'express';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
 
-@Controller('auth')
+@Controller()
 export class AuthPageController {
-  @Get('/')
-  @Render('auth')
+  @Get('/login')
+  @Render('login')
+  renderLoginPage() {
+    return;
+  }
+
+  @Get('/register')
+  @Render('register')
   renderAuthPage() {
-    return { data: '' };
+    return;
   }
 }
 
@@ -38,7 +44,7 @@ export class AuthController {
   }
 
   @Post('/register')
-  register(@Body() createAuthDto: CreateAuthDto) {
+  register(@Body() createAuthDto: RegisterDto) {
     return createAuthDto.toString();
   }
 
@@ -49,13 +55,13 @@ export class AuthController {
       req.user,
     );
 
-    res.cookie('accessToken', accessToken, {
+    res.cookie('access_token', accessToken, {
       httpOnly: true,
-      maxAge: 15 * 60 * 1000,
+      maxAge: 15 * 60 * 1000, // 15 minutes
     });
-    res.cookie('refreshTOken', refreshToken, {
+    res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
     res.redirect('/');
