@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { Environment } from 'src/common/types';
 import { MenuService } from 'src/menu/menu.service';
 import * as bcrypt from 'bcrypt';
+import omit from 'lodash.omit';
 
 @Injectable()
 export class UsersService implements OnModuleInit {
@@ -82,9 +83,8 @@ export class UsersService implements OnModuleInit {
     const menuData = await this.menuService.findOne(
       Number(userMenuId.toString()),
     );
+    const menu = omit(menuData, ['createdAt', '_id']);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { createdAt, _id, ...menu } = menuData;
     return menu;
   }
 
