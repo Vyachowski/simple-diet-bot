@@ -1,14 +1,33 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Render,
+  Request,
+  Response,
+  UseGuards,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { groceryList } from './common/basic-menu';
+import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { UsersService } from './users/users.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private userService: UsersService) {}
   @Get()
+  @UseGuards(JwtAuthGuard)
   @Render('index')
-  async root() {
-    const menu = await this.appService.getRandomMenu();
-    return { meals: Object.values(menu), groceryList };
+  async root(@Request() req, @Response() res) {
+    if (!req.user) {
+      res.redirect('/login');
+    }
+
+    const menu = await this.userService.getUserMenu(req.user.id);
+
+    return {
+      username: req.user.username,
+      menu: menu,
+      groceryList,
+    };
   }
 }

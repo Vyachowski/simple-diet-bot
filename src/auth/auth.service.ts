@@ -38,12 +38,13 @@ export class AuthService {
     };
   }
 
-  async register(username: string, password: string) {
+  async signUp(username: string, password: string) {
     const existingUser = await this.usersService.findOneByUsername(username);
 
     if (existingUser) {
       throw new ConflictException('Username already exists');
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await this.usersService.create({
       username,

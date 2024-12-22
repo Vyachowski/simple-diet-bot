@@ -75,6 +75,19 @@ export class UsersService implements OnModuleInit {
     return await this.dataSource.mongoManager.findOneBy(User, { username });
   }
 
+  async getUserMenu(id: number) {
+    const user = await this.findOne(id);
+
+    const userMenuId = user.activeMenuId;
+    const menuData = await this.menuService.findOne(
+      Number(userMenuId.toString()),
+    );
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { createdAt, _id, ...menu } = menuData;
+    return menu;
+  }
+
   // TODO: Add user password updating
   // update(id: number, updateUserDto: UpdateUserDto) {
   //   return `This action updates a #${id} user`;
