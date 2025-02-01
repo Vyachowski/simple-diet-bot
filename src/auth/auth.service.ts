@@ -1,4 +1,8 @@
-import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
@@ -11,27 +15,16 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(
-    username: string,
-    pass: string,
-  ): Promise<Omit<User, 'password'> | null> {
-    let isPasswordMatch = false;
-    let user = null;
-
+  async validateUser(username: string, pass: string): Promise<User | null> {
     try {
-      user = await this.usersService.findOneByUsername(username);
-      isPasswordMatch = await bcrypt.compare(pass, user?.password);
+      const user = await this.usersService.findOneByUsername(username);
+      const isPasswordMatch = await bcrypt.compare(pass, user?.password);
+
+      return user && isPasswordMatch ? user : null;
     } catch (e) {
       console.error(e?.message);
-      console.log(e?.stack);
-      throw new UnauthorizedException();
+      return null;
     }
-
-    if (isPasswordMatch && user) {
-      return user;
-    }
-
-    throw new UnauthorizedException();
   }
 
   async login(user: Omit<User, 'password'>) {
