@@ -12,7 +12,7 @@ export class LocalAuthGuard extends AuthGuard('local') {
     const res = context?.switchToHttp()?.getResponse();
 
     if (err || !user) {
-      req.flash('error', 'Неверный логин или пароль');
+      req.flash('error', 'Credentials are not valid');
       req.flash('username', req.body.username);
       req.flash('password', req.body.password);
 
