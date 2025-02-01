@@ -57,4 +57,14 @@ export class AuthService {
       user: newUser,
     };
   }
-}
+
+  verifyJwtToken(token: string) {
+    try {
+      const decoded = this.jwtService.verify(token);
+      return decoded;
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  }
+};

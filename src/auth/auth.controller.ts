@@ -5,8 +5,8 @@ import {
   Body,
   Render,
   UseGuards,
-  Request,
   Res,
+  Req,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -18,18 +18,22 @@ import { Response } from 'express';
 export class AuthPageController {
   @Get('/login')
   @Render('login')
-  renderLoginPage(@Request() req) {
+  renderLoginPage(@Req() req) {
     return {
-      error: req.flash('error')[0],
+      error: req.flash('error')[0] || '',
       username: req.flash('username')[0] || '',
-      password: req.flash('password'),
+      password: req.flash('password')[0] || '',
     };
   }
 
   @Get('/sign-up')
   @Render('sign-up')
-  renderSignInPage() {
-    return;
+  renderSignInPage(@Req() req) {
+    return {
+      error: req.flash('error')[0] || '',
+      username: req.flash('username')[0] || '',
+      password: req.flash('password')[0] || '',
+    };
   }
 }
 
@@ -39,14 +43,13 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Get('/')
-  getProfile(@Request() req) {
+  getProfile(@Req() req) {
     return req.user;
   }
 
   @Post('/sign-up')
   async signUp(
     @Body() registerDto: RegisterDto,
-    // @Session() session,
     @Res({ passthrough: true }) res: Response,
   ) {
     const { username, password, passwordConfirmation } = registerDto;
@@ -82,19 +85,21 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
-  async login(@Request() req, @Res() res: Response) {
-    console.log('Working!!!');
+  async login(@Req() req, @Res() res) {
+    const MINUTE = 60 * 1000;
+    const DAY = 24 * 60 * 60 * 1000;
+
     const { accessToken, refreshToken } = await this.authService.login(
       req.user,
     );
 
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      maxAge: 15 * 60 * 1000, // 15 minutes
+      maxAge: 15 * MINUTE,
     });
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      maxAge: 7 * DAY,
     });
 
     res.redirect('/');
@@ -102,7 +107,7 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Post('/logout')
-  async logout(@Request() req) {
+  async logout(@Req() req) {
     return req.logout();
   }
 

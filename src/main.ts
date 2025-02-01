@@ -8,6 +8,7 @@ import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
 import * as flash from 'connect-flash';
+import { AuthService } from './auth/auth.service';
 
 enum ConfigRecord {
   dbUrl = 'MONGODB_URL',
@@ -52,6 +53,7 @@ const checkAppConfig = (config) => {
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
+  const authService = app.get(AuthService);
 
   try {
     const appConfig = getAppConfig(configService);
@@ -68,6 +70,21 @@ const checkAppConfig = (config) => {
         saveUninitialized: false,
       }),
     );
+
+    app.use((req, res, next) => {
+      const token = req.cookies?.access_token;
+
+      if (token) {
+        const decodedUser = authService.verifyJwtToken(token);
+        if (decodedUser) {
+          req.user = decodedUser;
+        }
+      }
+
+      res.locals.authorised = !!req.user;
+      next();
+    });
+
     app.use(flash());
     app.setBaseViewsDir(join(__dirname, '..', 'views'));
     app.setViewEngine('pug');
