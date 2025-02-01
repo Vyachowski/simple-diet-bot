@@ -2,8 +2,10 @@ start:
 	npm run start
 dev:
 	nest start --watch
-lint:
+
+format:
 	npm run lint
+
 resource:
 	nest g resource $(name)
 res:
