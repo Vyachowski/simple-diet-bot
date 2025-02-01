@@ -83,7 +83,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   async login(@Request() req, @Res() res: Response) {
-    console.log('User', req?.user);
+    console.log('Working!!!');
     const { accessToken, refreshToken } = await this.authService.login(
       req.user,
     );

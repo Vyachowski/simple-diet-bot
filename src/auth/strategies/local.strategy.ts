@@ -21,19 +21,4 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 
     return user;
   }
-
-  // handleRequest<User>(
-  //   err: Error | null,
-  //   user: User | null,
-  //   _info: never,
-  //   context: ExecutionContext,
-  // ): User | void {
-  //   const res = context.switchToHttp().getResponse();
-  //   console.log('Wow!');
-  //   if (err || !user) {
-  //     return res.redirect('/login');
-  //   }
-
-  //   return user;
-  // }
 }

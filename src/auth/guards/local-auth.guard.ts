@@ -1,4 +1,8 @@
-import { ExecutionContext, Injectable } from '@nestjs/common';
+import {
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
 @Injectable()
@@ -10,9 +14,12 @@ export class LocalAuthGuard extends AuthGuard('local') {
     if (err || !user) {
       req.flash('error', 'Неверный логин или пароль');
       req.flash('username', req.body.username);
+      // FIXME: ПРоверить передачу пароля в шаблон, передается кракозябрь
       req.flash('password', req.body.password);
 
-      return res.redirect('/login');
+      res.redirect('/login');
+
+      throw new UnauthorizedException();
     }
 
     return user;
