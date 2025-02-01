@@ -107,8 +107,11 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Post('/logout')
-  async logout(@Req() req) {
-    return req.logout();
+  async logout(@Req() req, @Res() res) {
+    res.clearCookie('access_token');
+    res.clearCookie('refresh_token');
+
+    res.redirect('/login');
   }
 
   @Post('/refresh-token')

@@ -19,9 +19,8 @@ html(lang="en")
               li.nav-item
                 a.nav-link.active(aria-current='page' href='/') Home
             if authorised
-              div
-                a.btn.btn-link(href="/logout")
-                  | Log Out
+              form(method='POST', action='/api/auth/logout')
+                button.btn.btn-link(type='submit') Log Out
             else
               div
                 a.btn.btn-link(href="/login")

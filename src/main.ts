@@ -80,8 +80,9 @@ const checkAppConfig = (config) => {
           req.user = decodedUser;
         }
       }
-
       res.locals.authorised = !!req.user;
+      res.locals.user = req.user;
+
       next();
     });
 
