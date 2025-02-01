@@ -6,10 +6,50 @@ import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
+import * as session from 'express-session';
+import * as flash from 'connect-flash';
 
-bootstrap();
+enum ConfigRecord {
+  dbUrl = 'MONGODB_URL',
+  dbName = 'MONGODB_NAME',
+  envType = 'ENV',
+  appPort = 'PORT',
+}
 
-async function bootstrap() {
+const configureSwagger = (app: INestApplication) => {
+  const config = new DocumentBuilder()
+    .setTitle('Clean diet app API docs')
+    .setDescription('Clean diet API description')
+    .setVersion('1.0')
+    .addTag('Diet')
+    .build();
+
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, documentFactory);
+};
+
+const getAppConfig = (configService) => {
+  const DEFAULT_APP_PORT = 3000;
+
+  return {
+    dbUrl: configService.get(ConfigRecord.dbUrl),
+    dbName: configService.get(ConfigRecord.dbName),
+    envType: configService.get(ConfigRecord.envType),
+    appPort: configService.get(ConfigRecord.appPort) ?? DEFAULT_APP_PORT,
+  };
+};
+
+const checkAppConfig = (config) => {
+  Object.entries(config).forEach(([key, value]) => {
+    if (!value) {
+      throw new Error(
+        `Missing configuration: "${key}" is not defined or empty.`,
+      );
+    }
+  });
+};
+
+(async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
 
@@ -21,6 +61,14 @@ async function bootstrap() {
 
     app.use(cookieParser());
     app.useStaticAssets(join(__dirname, '..', 'public'));
+    app.use(
+      session({
+        secret: configService.get('JWT_SECRET'),
+        resave: false,
+        saveUninitialized: false,
+      }),
+    );
+    app.use(flash());
     app.setBaseViewsDir(join(__dirname, '..', 'views'));
     app.setViewEngine('pug');
     await app.listen(appConfig.appPort);
@@ -29,45 +77,4 @@ async function bootstrap() {
     console.error(e.stack);
     process.exit(1);
   }
-}
-
-// SECTION: App configuration
-function configureSwagger(app: INestApplication<any>) {
-  const config = new DocumentBuilder()
-    .setTitle('Clean diet app API docs')
-    .setDescription('Clean diet API description')
-    .setVersion('1.0')
-    .addTag('Diet')
-    .build();
-
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, documentFactory);
-}
-
-function checkAppConfig(config) {
-  Object.entries(config).forEach(([key, value]) => {
-    if (!value) {
-      throw new Error(
-        `Missing configuration: "${key}" is not defined or empty.`,
-      );
-    }
-  });
-}
-
-function getAppConfig(configService) {
-  const DEFAULT_APP_PORT = 3000;
-
-  return {
-    dbUrl: configService.get(ConfigRecord.dbUrl),
-    dbName: configService.get(ConfigRecord.dbName),
-    envType: configService.get(ConfigRecord.envType),
-    appPort: configService.get(ConfigRecord.appPort) ?? DEFAULT_APP_PORT,
-  };
-}
-
-enum ConfigRecord {
-  dbUrl = 'MONGODB_URL',
-  dbName = 'MONGODB_NAME',
-  envType = 'ENV',
-  appPort = 'PORT',
-}
+})();
