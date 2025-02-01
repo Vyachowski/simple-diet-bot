@@ -1,14 +1,18 @@
 import { ExecutionContext, Injectable } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Response } from 'express';
 
 @Injectable()
 export class LocalAuthGuard extends AuthGuard('local') {
   handleRequest(err, user, info, context: ExecutionContext) {
-    const response = context?.switchToHttp()?.getResponse<Response>();
+    const req = context?.switchToHttp()?.getRequest();
+    const res = context?.switchToHttp()?.getResponse();
 
     if (err || !user) {
-      return response.redirect('/login');
+      req.flash('error', 'Неверный логин или пароль');
+      req.flash('username', req.body.username);
+      req.flash('password', req.body.password);
+
+      return res.redirect('/login');
     }
 
     return user;

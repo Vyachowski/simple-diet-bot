@@ -18,8 +18,12 @@ import { Response } from 'express';
 export class AuthPageController {
   @Get('/login')
   @Render('login')
-  renderLoginPage() {
-    return;
+  renderLoginPage(@Request() req) {
+    return {
+      error: req.flash('error')[0],
+      username: req.flash('username')[0] || '',
+      password: req.flash('password'),
+    };
   }
 
   @Get('/sign-up')
