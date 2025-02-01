@@ -78,11 +78,11 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
-  async login(@Request() req, @Res({ passthrough: true }) res: Response) {
+  async login(@Request() req, @Res() res: Response) {
     const { accessToken, refreshToken } = await this.authService.login(
       req.user,
     );
-
+    console.log('Sowwy');
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       maxAge: 15 * 60 * 1000, // 15 minutes
