@@ -2,6 +2,13 @@ extends layout
 
 block content
   main.p-5
+    if error
+      .toast-wrapper(style="position: absolute; top: 60px; right: 20px;")
+        .toast.toast-error.fade.show(role="alert" aria-live="assertive" aria-atomic="true")
+          .toast-header
+            strong.me-auto Login process went wrong
+            button(type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close")
+          .toast-body.text-danger=error
     h1.visually-hidden Login page
     .container
       .row.justify-content-center
@@ -18,5 +25,3 @@ block content
               div.d-grid.gap-2
                 button.btn.btn-primary(type='submit') Log in
                 p.text-center Don't have an account? <a href='/sign-up'>Sign up</a>
-                if error
-                  p.text-center.text-danger=error

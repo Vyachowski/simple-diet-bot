@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  //- if flash('error')
-  //-   .toast.toast-error.fade.show(role="alert" aria-live="assertive" aria-atomic="true")
-  //-     .toast-header
-  //-       strong.me-auto Error
-  //-       button(type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close")
-  //-     .toast-body
-  //-       | #{flash('error')}
   main.p-5
+    if error
+      .toast-wrapper(style="position: absolute; top: 60px; right: 20px;")
+        .toast.toast-error.fade.show(role="alert" aria-live="assertive" aria-atomic="true")
+          .toast-header
+            strong.me-auto Login process went wrong
+            button(type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close")
+          .toast-body.text-danger=error
     h1.visually-hidden Registration page
     .container
       .row.justify-content-center
