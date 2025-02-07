@@ -13,6 +13,7 @@ import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Response } from 'express';
+import ms from 'ms';
 
 @Controller()
 export class AuthPageController {
@@ -86,20 +87,17 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   async login(@Req() req, @Res() res) {
-    const MINUTE = 60 * 1000;
-    const DAY = 24 * 60 * 60 * 1000;
-
     const { accessToken, refreshToken } = await this.authService.login(
       req.user,
     );
 
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      maxAge: 15 * MINUTE,
+      maxAge: ms('15 minutes'),
     });
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      maxAge: 7 * DAY,
+      maxAge: ms('7 days'),
     });
 
     res.redirect('/');
