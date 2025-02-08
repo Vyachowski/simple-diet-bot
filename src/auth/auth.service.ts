@@ -11,24 +11,20 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(
-    username: string,
-    pass: string,
-  ): Promise<Omit<User, 'password'> | null> {
-    const user = await this.usersService.findOneByUsername(username);
-    const isPasswordMatch = await bcrypt.compare(pass, user.password);
+  async validateUser(email: string, pass: string): Promise<User | null> {
+    try {
+      const user = await this.usersService.findOneByEmail(email);
+      const isPasswordMatch = await bcrypt.compare(pass, user?.password);
 
-    if (user && isPasswordMatch) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { password, ...result } = user;
-      return result;
+      return user && isPasswordMatch ? user : null;
+    } catch (e) {
+      console.error(e?.message);
+      return null;
     }
-
-    return null;
   }
 
-  async login(user: Omit<User, 'password'>) {
-    const payload = { username: user.username, sub: user._id.toString() };
+  async login(user: User) {
+    const payload = { email: user.email, sub: user._id.toString() };
 
     return {
       accessToken: this.jwtService.sign(payload, { expiresIn: '15m' }),
@@ -38,20 +34,20 @@ export class AuthService {
     };
   }
 
-  async signUp(username: string, password: string) {
-    const existingUser = await this.usersService.findOneByUsername(username);
+  async signUp(email: string, password: string) {
+    const existingUser = await this.usersService.findOneByEmail(email);
 
     if (existingUser) {
-      throw new ConflictException('Username already exists');
+      throw new ConflictException('Email already registered.');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await this.usersService.create({
-      username,
+      email,
       password: hashedPassword,
     });
 
-    const payload = { username: newUser.username, sub: newUser._id.toString() };
+    const payload = { username: newUser.email, sub: newUser._id.toString() };
 
     return {
       accessToken: this.jwtService.sign(payload, { expiresIn: '15m' }),
@@ -60,5 +56,15 @@ export class AuthService {
       }),
       user: newUser,
     };
+  }
+
+  verifyJwtToken(token: string) {
+    try {
+      const decoded = this.jwtService.verify(token);
+      return decoded;
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
   }
 }

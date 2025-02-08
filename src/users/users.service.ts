@@ -17,13 +17,13 @@ export class UsersService implements OnModuleInit {
 
   async onModuleInit() {
     const env = this.configService.get('ENV');
-    const testUsername = this.configService.get('TEST_USERNAME');
+    const testEmail = this.configService.get('TEST_EMAIL');
 
     if (env.toLowerCase() === Environment.Development) {
       const existingTestUser = await this.dataSource.mongoManager.findOneBy(
         User,
         {
-          username: testUsername,
+          email: testEmail,
         },
       );
 
@@ -37,7 +37,7 @@ export class UsersService implements OnModuleInit {
       const hash = await bcrypt.hash(password, saltOrRounds);
 
       const testUser: CreateUserDto = {
-        username: testUsername,
+        email: testEmail,
         password: hash,
       };
 
@@ -71,8 +71,8 @@ export class UsersService implements OnModuleInit {
     return await this.dataSource.mongoManager.findOneBy(User, id);
   }
 
-  async findOneByUsername(username: string) {
-    return await this.dataSource.mongoManager.findOneBy(User, { username });
+  async findOneByEmail(email: string) {
+    return await this.dataSource.mongoManager.findOneBy(User, { email });
   }
 
   async getUserMenu(id: number) {

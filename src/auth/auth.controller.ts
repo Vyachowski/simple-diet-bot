@@ -1,3 +1,4 @@
+import ms from 'ms';
 import {
   Controller,
   Get,
@@ -5,67 +6,87 @@ import {
   Body,
   Render,
   UseGuards,
-  Request,
   Res,
+  Req,
 } from '@nestjs/common';
+
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Response } from 'express';
+import { UsersService } from 'src/users/users.service';
 
 @Controller()
 export class AuthPageController {
   @Get('/login')
   @Render('login')
-  renderLoginPage() {
-    return;
+  renderLoginPage(@Req() req) {
+    return {
+      error: req.flash('error')[0] || '',
+      email: req.flash('email')[0] || '',
+      password: req.flash('password')[0] || '',
+    };
   }
 
   @Get('/sign-up')
   @Render('sign-up')
-  renderSignInPage() {
-    return;
+  renderSignInPage(@Req() req) {
+    return {
+      error: req.flash('error')[0] || '',
+      email: req.flash('email')[0] || '',
+      password: req.flash('password')[0] || '',
+    };
   }
 }
 
 @Controller('api/auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private userService: UsersService) {}
 
   @UseGuards(JwtAuthGuard)
-  @Get('/')
-  getProfile(@Request() req) {
+  @Get('/me')
+  getProfile(@Req() req) {
     return req.user;
   }
 
   @Post('/sign-up')
   async signUp(
     @Body() registerDto: RegisterDto,
-    // @Session() session,
     @Res({ passthrough: true }) res: Response,
+    @Req() req,
   ) {
-    const { username, password, passwordConfirmation } = registerDto;
+    const { email, password, passwordConfirmation } = registerDto;
+    const existingUser = await this.userService.findOneByEmail(email);
+
 
     if (password !== passwordConfirmation) {
-      // TODO: ADD FLASH MESSAGES BASED ON RESULT OF VALIDATION
-      // res.flash('error', 'Password and password confirmation are not equal');
+      req.flash('error', 'Password and password confirmation are not equal.');
+      req.flash('email', req.body.email);
+      req.flash('password', req.body.password);
+      return res.redirect('/sign-up');
+    }
+
+    if (existingUser) {
+      req.flash('error', 'The user already exists.');
+      req.flash('email', req.body.email);
+      req.flash('password', req.body.password);
       return res.redirect('/sign-up');
     }
 
     try {
       const { accessToken, refreshToken } = await this.authService.signUp(
-        username,
+        email,
         password,
       );
 
       res.cookie('access_token', accessToken, {
         httpOnly: true,
-        maxAge: 15 * 60 * 1000, // 15 minutes
+        maxAge: ms('15 minutes'),
       });
       res.cookie('refresh_token', refreshToken, {
         httpOnly: true,
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        maxAge: ms('7 days'),
       });
 
       res.redirect('/');
@@ -78,18 +99,18 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
-  async login(@Request() req, @Res({ passthrough: true }) res: Response) {
+  async login(@Req() req, @Res() res) {
     const { accessToken, refreshToken } = await this.authService.login(
       req.user,
     );
 
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      maxAge: 15 * 60 * 1000, // 15 minutes
+      maxAge: ms('15 minutes'),
     });
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      maxAge: ms('7 days'),
     });
 
     res.redirect('/');
@@ -97,8 +118,11 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Post('/logout')
-  async logout(@Request() req) {
-    return req.logout();
+  async logout(@Req() req, @Res() res) {
+    res.clearCookie('access_token');
+    res.clearCookie('refresh_token');
+
+    res.redirect('/login');
   }
 
   @Post('/refresh-token')

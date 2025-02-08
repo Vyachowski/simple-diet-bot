@@ -6,7 +6,6 @@ import {
   Response,
   UseGuards,
 } from '@nestjs/common';
-import { AppService } from './app.service';
 import { groceryList } from './common/basic-menu';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { UsersService } from './users/users.service';
@@ -25,7 +24,7 @@ export class AppController {
     const menu = await this.userService.getUserMenu(req.user.id);
 
     return {
-      username: req.user.username,
+      email: req.user.email,
       menu: menu,
       groceryList,
     };
