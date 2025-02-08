@@ -23,7 +23,7 @@ export class UsersService implements OnModuleInit {
       const existingTestUser = await this.dataSource.mongoManager.findOneBy(
         User,
         {
-          username: testEmail,
+          email: testEmail,
         },
       );
 
