@@ -43,7 +43,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @UseGuards(JwtAuthGuard)
-  @Get('/')
+  @Get('/me')
   getProfile(@Req() req) {
     return req.user;
   }
@@ -53,7 +53,7 @@ export class AuthController {
     @Body() registerDto: RegisterDto,
     @Res({ passthrough: true }) res: Response,
   ) {
-    const { username, password, passwordConfirmation } = registerDto;
+    const { email, password, passwordConfirmation } = registerDto;
 
     if (password !== passwordConfirmation) {
       // TODO: ADD FLASH MESSAGES BASED ON RESULT OF VALIDATION
@@ -63,17 +63,17 @@ export class AuthController {
 
     try {
       const { accessToken, refreshToken } = await this.authService.signUp(
-        username,
+        email,
         password,
       );
 
       res.cookie('access_token', accessToken, {
         httpOnly: true,
-        maxAge: 15 * 60 * 1000, // 15 minutes
+        maxAge: ms('15 minutes'),
       });
       res.cookie('refresh_token', refreshToken, {
         httpOnly: true,
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        maxAge: ms('7 days'),
       });
 
       res.redirect('/');
