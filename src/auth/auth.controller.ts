@@ -24,7 +24,7 @@ export class AuthPageController {
   renderLoginPage(@Req() req) {
     return {
       error: req.flash('error')[0] || '',
-      username: req.flash('username')[0] || '',
+      email: req.flash('email')[0] || '',
       password: req.flash('password')[0] || '',
     };
   }
@@ -34,7 +34,7 @@ export class AuthPageController {
   renderSignInPage(@Req() req) {
     return {
       error: req.flash('error')[0] || '',
-      username: req.flash('username')[0] || '',
+      email: req.flash('email')[0] || '',
       password: req.flash('password')[0] || '',
     };
   }
@@ -79,7 +79,7 @@ export class AuthController {
         email,
         password,
       );
-      console.log(ms('15 minutes'));
+
       res.cookie('access_token', accessToken, {
         httpOnly: true,
         maxAge: ms('15 minutes'),

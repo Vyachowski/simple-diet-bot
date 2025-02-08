@@ -17,7 +17,7 @@ export class UsersService implements OnModuleInit {
 
   async onModuleInit() {
     const env = this.configService.get('ENV');
-    const testEmail = this.configService.get('TEST_USERNAME');
+    const testEmail = this.configService.get('TEST_EMAIL');
 
     if (env.toLowerCase() === Environment.Development) {
       const existingTestUser = await this.dataSource.mongoManager.findOneBy(
@@ -71,8 +71,8 @@ export class UsersService implements OnModuleInit {
     return await this.dataSource.mongoManager.findOneBy(User, id);
   }
 
-  async findOneByEmail(username: string) {
-    return await this.dataSource.mongoManager.findOneBy(User, { username });
+  async findOneByEmail(email: string) {
+    return await this.dataSource.mongoManager.findOneBy(User, { email });
   }
 
   async getUserMenu(id: number) {

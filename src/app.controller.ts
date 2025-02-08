@@ -24,7 +24,7 @@ export class AppController {
     const menu = await this.userService.getUserMenu(req.user.id);
 
     return {
-      username: req.user.username,
+      email: req.user.email,
       menu: menu,
       groceryList,
     };
