@@ -11,9 +11,9 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(username: string, pass: string): Promise<User | null> {
+  async validateUser(email: string, pass: string): Promise<User | null> {
     try {
-      const user = await this.usersService.findOneByUsername(username);
+      const user = await this.usersService.findOneByEmail(email);
       const isPasswordMatch = await bcrypt.compare(pass, user?.password);
 
       return user && isPasswordMatch ? user : null;
@@ -34,16 +34,16 @@ export class AuthService {
     };
   }
 
-  async signUp(username: string, password: string) {
-    const existingUser = await this.usersService.findOneByUsername(username);
+  async signUp(email: string, password: string) {
+    const existingUser = await this.usersService.findOneByEmail(email);
 
     if (existingUser) {
-      throw new ConflictException('Username already exists');
+      throw new ConflictException('Email already registered.');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await this.usersService.create({
-      username,
+      email,
       password: hashedPassword,
     });
 

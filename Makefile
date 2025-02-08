@@ -3,7 +3,7 @@ install:
 start:
 	npm run start
 dev:
-	nest start --watch
+	npm run start:dev
 
 format:
 	npm run lint

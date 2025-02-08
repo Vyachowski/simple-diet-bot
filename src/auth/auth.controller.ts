@@ -1,3 +1,4 @@
+import ms from 'ms';
 import {
   Controller,
   Get,
@@ -8,12 +9,13 @@ import {
   Res,
   Req,
 } from '@nestjs/common';
+
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Response } from 'express';
-import ms from 'ms';
+import { UsersService } from 'src/users/users.service';
 
 @Controller()
 export class AuthPageController {
@@ -40,7 +42,7 @@ export class AuthPageController {
 
 @Controller('api/auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private userService: UsersService) {}
 
   @UseGuards(JwtAuthGuard)
   @Get('/me')
@@ -52,12 +54,23 @@ export class AuthController {
   async signUp(
     @Body() registerDto: RegisterDto,
     @Res({ passthrough: true }) res: Response,
+    @Req() req,
   ) {
     const { email, password, passwordConfirmation } = registerDto;
+    const existingUser = await this.userService.findOneByEmail(email);
+
 
     if (password !== passwordConfirmation) {
-      // TODO: ADD FLASH MESSAGES BASED ON RESULT OF VALIDATION
-      // res.flash('error', 'Password and password confirmation are not equal');
+      req.flash('error', 'Password and password confirmation are not equal.');
+      req.flash('email', req.body.email);
+      req.flash('password', req.body.password);
+      return res.redirect('/sign-up');
+    }
+
+    if (existingUser) {
+      req.flash('error', 'The user already exists.');
+      req.flash('email', req.body.email);
+      req.flash('password', req.body.password);
       return res.redirect('/sign-up');
     }
 
@@ -66,7 +79,7 @@ export class AuthController {
         email,
         password,
       );
-
+      console.log(ms('15 minutes'));
       res.cookie('access_token', accessToken, {
         httpOnly: true,
         maxAge: ms('15 minutes'),

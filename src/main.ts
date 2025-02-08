@@ -5,9 +5,9 @@ import { join } from 'path';
 import { AppModule } from './app.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import * as cookieParser from 'cookie-parser';
-import * as session from 'express-session';
-import * as flash from 'connect-flash';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import flash from 'connect-flash';
 import { AuthService } from './auth/auth.service';
 
 enum ConfigRecord {

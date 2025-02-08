@@ -17,8 +17,8 @@ block content
             h2.text-center Registration form
             form(action="/api/auth/sign-up" method="POST")
               div.mb-3
-                label.form-label(for="login") Username
-                input#email.form-control(type="text" name="username" placeholder="Tester" required)
+                label.form-label(for="email") Email
+                input#email.form-control(type="email" name="email" placeholder="email@domain.com" required)
               div.mb-3
                 label.form-label(for="password") Password
                 input#password.form-control(type="password" name="password" placeholder='sTr0nGP/\\$$worD' required)
